@@ -11,7 +11,7 @@ Soy Alessandro Hernández, y en este espacio alojaremos todos los scripts, proto
 Para mantener el orden y asegurar la reproducibilidad de nuestros análisis, este repositorio está dividido en los siguientes directorios:
 
 ```text
-📦 Antropologia_Molecular_Taller
+📦 AntropologiaMolecular_Analisis
  ┣ 📂 Data
  ┃ ┣ 📂 Raw          # Datos crudos descargados de bases públicas (FASTA, VCF)
  ┃ ┗ 📂 Clean        # Datos filtrados y alineamientos listos para R
