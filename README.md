@@ -1,8 +1,8 @@
 # 🧬 Taller de Análisis Genético - Antropología Molecular
 
-¡Bienvenidos al repositorio oficial del componente práctico de la clase de Antropología Molecular! 
+¡Bienvenidos al repositorio de la parte teórica de la clase de Antropología Molecular! 
 
-Soy Alessandro Hernández, y en este espacio alojaremos todos los scripts, protocolos y bases de datos necesarios para llevar a cabo nuestros análisis genéticos. El objetivo de este taller es que aprendan a construir un *pipeline* bioinformático reproducible: desde la descarga de secuencias crudas hasta la visualización de filogenias y estructura poblacional lista para publicación.
+En este espacio alojaremos todos los scripts, protocolos y bases de datos necesarios para llevar a cabo nuestros análisis genéticos. El objetivo de este repositorio es que aprendan a construir un *pipeline* bioinformático reproducible: desde la descarga de secuencias crudas hasta la visualización de filogenias y estructura poblacional lista para publicación.
 
 ---
 
