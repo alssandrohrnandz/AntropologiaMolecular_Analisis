@@ -6,6 +6,7 @@
 # Correr a partir de aquí en R Studio con Ctrl+Enter línea por línea
 # Instalación de paquetes
 # En caso de que no lo tengan isntalado se ejecutarán en automatico
+# TOTAL: 50 puntos
 
 ## CARGA DE PAQUETES ##
 if (!require("adegenet")) install.packages("adegenet")
