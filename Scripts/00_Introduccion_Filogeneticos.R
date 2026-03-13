@@ -13,7 +13,7 @@ library(ape) #Ejecutar para cargar
 library(phangorn) #Ejecutar para cargar
 
 # Cargamos datos de ejemplo (15 secuencias de ADN mitocondrial)
-
+set.seed(4598)
 data(woodmouse)
 
 # ==============================================================================
