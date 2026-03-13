@@ -12,6 +12,8 @@ Para mantener el orden y asegurar la reproducibilidad de nuestros análisis, est
 
 ```text
 📦 AntropologiaMolecular_Analisis
+ ┣ 📂 Examenes
+ ┃ ┗ 📝 00_Examen_Practico.R  
  ┣ 📂 Data
  ┃ ┣ 📂 Raw          # Datos crudos descargados de bases públicas (FASTA, VCF)
  ┃ ┗ 📂 Clean        # Datos filtrados y alineamientos listos para R
