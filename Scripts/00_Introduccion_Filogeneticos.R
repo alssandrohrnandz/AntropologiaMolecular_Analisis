@@ -28,13 +28,15 @@ dist_jc  <- dist.dna(woodmouse, model = "JC69")
 dist_gtr <- dist.dna(woodmouse, model = "K80")
 
 # ENTREGABLE 1: Comparación de distancias
-par(mfrow = c(1, 2))
+png(filename = "Results/00_Introduccion/Distancias_JC69_K80.png", width = 500, height = 600, res = 120)
+#par(mfrow = c(1, 2))
 plot(dist_jc, dist_gtr, main = "Corrección de Distancias",
      # Cambiar de acuerdo al modelo escogido en vez de K80 
      # El resto dejarlo como está
      xlab = "Distancia Simple (JC69)", ylab = "Distancia Compleja (K80)", 
      pch = 19, col = rgb(0.2, 0.4, 0.6, 0.5))
 abline(0, 1, col = "red", lwd = 2) 
+dev.off()
 # Nota: Los puntos sobre la línea roja indican donde el modelo simple subestima la evolución.
 
 # ==============================================================================
@@ -46,10 +48,11 @@ tree_nj    <- nj(dist_gtr)    # Neighbor-Joining (No asume reloj molecular)
 tree_upgma <- upgma(dist_gtr) # UPGMA (Asume reloj molecular estricto)
 
 # ENTREGABLE 2: Comparación de Topologías
+png(filename = "Results/00_Introduccion/Arbol_NJ_UPGMA.png", width = 800, height = 600, res = 120)
 par(mfrow = c(1, 2))
 plot(tree_nj, main = "Neighbor-Joining (NJ)", sub = "Sin reloj molecular")
 plot(tree_upgma, main = "UPGMA", sub = "Con reloj molecular")
-
+dev.off()
 # ==============================================================================
 # MÉTRICAS DE SOPORTE (BOOTSTRAP)
 # ==============================================================================
@@ -62,13 +65,15 @@ fun_nj <- function(x) nj(dist.dna(x, model = "K80"))
 # Corremos 100 réplicas de Bootstrap (puede tardar unos segundos)
 set.seed(123) # Para que todos tengan el mismo resultado
 bs_values <- boot.phylo(tree_nj, woodmouse, fun_nj, B = 100)
-
+png(filename = "Results/00_Introduccion/Arbol_NJ_Bootstrap.png", width = 500, height = 600, res = 120)
 # ENTREGABLE 3: Árbol con valores de confianza
 plot(tree_nj, main = "Árbol Final con Soporte de Bootstrap")
 # Añadimos los valores a los nodos (solo si son mayores a 50%)
 nodelabels(bs_values, adj = c(1.2, -0.5), frame = "n", cex = 0.8,
            col = ifelse(bs_values > 70, "darkgreen", "red"))
-
+dev.off()
 # ==============================================================================
 # FINAL DEL SCRIPT
 # ==============================================================================
+
+
