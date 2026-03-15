@@ -23,6 +23,6 @@ Para mantener el orden y asegurar la reproducibilidad de nuestros análisis, est
  ┃ ┣ 📜 02_Phylogeny_Networks.R    # Script para modelos, árboles (ape) y redes
  ┃ ┗ 📜 03_PopStructure.R          # Script para PCA, DAPC y AMOVA (adegenet, poppr)
  ┣ 📂 Results
- ┃ ┣ 📂 Trees        # Árboles filogenéticos exportados (PDF/PNG)
- ┃ ┗ 📂 Plots        # Gráficos de estructura poblacional y redes de haplotipos
+ ┃ ┣ 📂 00_Introduccion        # Árboles filogenéticos exportados (PDF/PNG)
+ ┃ ┗ 📂 01_TallerBioinfo        # Gráficos de estructura poblacional y redes de haplotipos
  ┗ 📜 README.md      # Este documento
