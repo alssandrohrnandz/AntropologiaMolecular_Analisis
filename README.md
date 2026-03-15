@@ -20,9 +20,10 @@ Para mantener el orden y asegurar la reproducibilidad de nuestros análisis, est
  ┣ 📂 Scripts
  ┃ ┣ 📜 00_Introduccion_Filogeneticos.R # Introducción al análisis de secuencias (ape)
  ┃ ┣ 📜 01_Distancias_Geneticas.R    # Conversión y cálculo de la distancia Fst
- ┃ ┣ 📜 02_Estructura_Poblacional.R    # Script para modelos, árboles (ape) y redes
+ ┃ ┣ 📜 02_Estructura_Poblacional.R    # Script para AMOVA
  ┃ ┗ 📜 03_PopStructure.R          # Script para PCA, DAPC y AMOVA (adegenet, poppr)
  ┣ 📂 Results
  ┃ ┣ 📂 00_Introduccion        # Árboles filogenéticos exportados (PDF/PNG)
- ┃ ┗ 📂 01_Distancias_Geneticas        # Gráfico de heatmap de distancias genéticas
+ ┃ ┣ 📂 01_Distancias_Geneticas        # Gráfico de heatmap de distancias genéticas
+ ┃ ┗ 📂 02_Estructura_Poblacional #Grafico de Pastel donde se observa dónde existe mayor diversidad con AMOVA
  ┗ 📜 README.md      # Este documento
