@@ -19,10 +19,10 @@ Para mantener el orden y asegurar la reproducibilidad de nuestros análisis, est
  ┃ ┗ 📂 Clean        # Datos filtrados y alineamientos listos para R
  ┣ 📂 Scripts
  ┃ ┣ 📜 00_Introduccion_Filogeneticos.R # Introducción al análisis de secuencias (ape)
- ┃ ┣ 📜 01_Bioinfo_Retrieval.sh    # Comandos de terminal para descarga de datos
- ┃ ┣ 📜 02_Phylogeny_Networks.R    # Script para modelos, árboles (ape) y redes
+ ┃ ┣ 📜 01_Distancias_Geneticas.R    # Conversión y cálculo de la distancia Fst
+ ┃ ┣ 📜 02_Estructura_Poblacional.R    # Script para modelos, árboles (ape) y redes
  ┃ ┗ 📜 03_PopStructure.R          # Script para PCA, DAPC y AMOVA (adegenet, poppr)
  ┣ 📂 Results
  ┃ ┣ 📂 00_Introduccion        # Árboles filogenéticos exportados (PDF/PNG)
- ┃ ┗ 📂 01_TallerBioinfo        # Gráficos de estructura poblacional y redes de haplotipos
+ ┃ ┗ 📂 01_Distancias_Geneticas        # Gráfico de heatmap de distancias genéticas
  ┗ 📜 README.md      # Este documento
