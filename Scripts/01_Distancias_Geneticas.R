@@ -1,7 +1,7 @@
 # ==============================================================================
-# HORA 2: CÁLCULO DE DISTANCIAS GENÉTICAS Y MAPA DE CALOR (Fst)
+# CÁLCULO DE DISTANCIAS GENÉTICAS Y MAPA DE CALOR (Fst)
 # Author: Alessandro Lopez-Hernandez
-# Date: March 4th 2026
+# Date: March 15th 2026
 # Correr a partir de aquí en R Studio con Ctrl+Enter línea por línea
 # Instalación de paquetes
 # En caso de que no lo tengan isntalado se ejecutarán en automatico
