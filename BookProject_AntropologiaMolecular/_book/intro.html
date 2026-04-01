@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -143,8 +178,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#vectores" id="toc-vectores" class="nav-link active" data-scroll-target="#vectores"><span class="header-section-number">3</span> Vectores</a></li>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="header-section-number">4</span> Matrices</a></li>
+  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames"><span class="header-section-number">5</span> Data frames</a></li>
+  <li><a href="#listas" id="toc-listas" class="nav-link" data-scroll-target="#listas"><span class="header-section-number">6</span> Listas</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -183,10 +227,129 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Ejecución de una instrucción en RStudio.</figcaption>
 </figure>
 </div>
-<p>Como notarás, no se ejecuta nada más. !Y eso está bien!. No prestemos por ahora atención sobre los mensajes que aparecen en la consola. Lo importante es que se ejecute la instrucción que escribimos en el script. En este caso, lo que hicimos fue cargar el paquete <code>ape</code>, que es un paquete muy útil para trabajar con datos de secuencias de ADN.</p>
-<p>La ventana de la derecha es la consola. La consola es donde se ejecutan las instrucciones que escribimos en el script. Por ejemplo, si queremos cargar un paquete, tenemos que escribir <code>library(nombre_del_paquete)</code> en el script y luego ejecutar esa línea de código para que se cargue el paquete en la consola.</p>
+<p>Como notarás, no se ejecuta nada más. !Y eso está bien!. No prestemos por ahora atención sobre los mensajes que aparecen en la consola. Lo importante es que se ejecute la instrucción que escribimos en el script. <strong>En este caso, lo que hicimos fue cargar el paquete <code>ape</code>, que es un paquete muy útil para trabajar con datos de secuencias de ADN</strong>.</p>
+<p><strong>A partir de esta sección, ya no verás imágenes de la consola de RStudio ejecutándose, sino que ahora verás el código tal cuál debe escribirse en tu consola.</strong> Esto es para que puedas copiar y pegar el código directamente en tu consola de RStudio y así practicar lo que estás aprendiendo.</p>
+<p>Lo siguiente que haremos es generar datos para que R pueda leerlos. Los datos en R se clasifican en diferentes tipos: <em>vectores</em>, <em>matrices</em>, <em>data frames</em> y <em>listas</em>.</p>
+<section id="vectores" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Vectores</h1>
+<p>Los vectores son la forma más básica de datos en R. Un vector es <em>una secuencia de elementos del mismo tipo</em>. Por ejemplo, un vector de números enteros, un vector de caracteres, etc. Para crear un vector en R, usamos la función <code>c()</code>, que significa “combine” o “concatenate”. Por ejemplo, para crear un vector de números enteros del 1 al 5, escribimos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mi_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>En este caso, <code>mi_vector</code> es un vector que contiene los números del 1 al 5. Podemos acceder a los elementos de un vector usando índices. Por ejemplo, para acceder al tercer elemento de <code>mi_vector</code>, escribimos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mi_vector[<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>Esto nos devolverá el número 3, que es el tercer elemento del vector. También podemos realizar operaciones con vectores. Por ejemplo, si queremos sumar 2 a cada elemento del vector, escribimos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mi_vector <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3 4 5 6 7</code></pre>
+</div>
+</div>
+<p>Esto nos devolverá un nuevo vector con los valores 3, 4, 5, 6 y 7.</p>
+<p><strong>Nota: los vectores son muy importantes en R, especialmente cuando trabajamos con datos de secuencias de ADN, ya que podemos organizar las secuencias en un vector para facilitar su análisis.</strong> Por ejemplo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>secuencias <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ATCG"</span>, <span class="st">"GCTA"</span>, <span class="st">"TACG"</span>, <span class="st">"CGTA"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>En este caso, <code>secuencias</code> es un vector que contiene las secuencias de ADN. Cada elemento del vector es una secuencia de ADN representada como una cadena de caracteres. Podemos acceder a cada secuencia usando índices, por ejemplo:</p>
+</section>
+<section id="matrices" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Matrices</h1>
+<p>Las matrices son una extensión de los vectores. Una matriz es <em>una colección de elementos del mismo tipo organizados en filas y columnas</em>. Para crear una matriz en R, usamos la función <code>matrix()</code>. Por ejemplo, para crear una matriz de 2 filas y 3 columnas con los números del 1 al 6, escribimos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mi_matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>En este caso, <code>mi_matriz</code> es una matriz que contiene los números del 1 al 6 organizados en 2 filas y 3 columnas. Podemos acceder a los elementos de una matriz usando índices de fila y columna. Por ejemplo, para acceder al elemento en la primera fila y segunda columna, escribimos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mi_matriz[<span class="dv">1</span>, <span class="dv">2</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>Esto nos devolverá el número 4, que es el elemento en la primera fila y segunda columna de la matriz. También podemos realizar operaciones con matrices. Por ejemplo, si queremos sumar 2 a cada elemento de la matriz, escribimos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mi_matriz <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    3    5    7
+[2,]    4    6    8</code></pre>
+</div>
+</div>
+<p>Esto nos devolverá una nueva matriz con los valores 3, 4, 5, 6, 7 y 8.</p>
+<p><strong>Nota: las matrices son muy importantes en R, especialmente cuando trabajamos con datos de secuencias de ADN, ya que podemos organizar las secuencias en una matriz para facilitar su análisis.</strong> Por ejemplo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>secuencias_matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="st">"ATCG"</span>, <span class="st">"GCTA"</span>, <span class="st">"TACG"</span>, <span class="st">"CGTA"</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>secuencias_matriz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]   [,2]  
+[1,] "ATCG" "TACG"
+[2,] "GCTA" "CGTA"</code></pre>
+</div>
+</div>
+<p>En este caso, <code>secuencias_matriz</code> es una matriz que contiene las secuencias de ADN organizadas en 2 filas y 2 columnas. Cada elemento de la matriz es una secuencia de ADN representada como una cadena de caracteres.</p>
+</section>
+<section id="data-frames" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Data frames</h1>
+<p>Los data frames son una estructura de datos muy común en R. Un data frame es <em>una tabla de datos que puede contener diferentes tipos de variables</em>. Para crear un data frame en R, usamos la función <code>data.frame()</code>. Por ejemplo, para crear un data frame con información sobre secuencias de ADN, escribimos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>secuencias_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">c</span>(<span class="st">"seq1"</span>, <span class="st">"seq2"</span>, <span class="st">"seq3"</span>, <span class="st">"seq4"</span>),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">secuencia =</span> <span class="fu">c</span>(<span class="st">"ATCG"</span>, <span class="st">"GCTA"</span>, <span class="st">"TACG"</span>, <span class="st">"CGTA"</span>),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">longitud =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>En este caso, <code>secuencias_df</code> es un data frame que contiene información sobre las secuencias de ADN. La primera columna <code>id</code> contiene los identificadores de las secuencias, la segunda columna <code>secuencia</code> contiene las secuencias de ADN y la tercera columna <code>longitud</code> contiene la longitud de cada secuencia. Podemos acceder a las columnas de un data frame usando el operador <code>$</code>. Por ejemplo, para acceder a la columna <code>secuencia</code>, escribimos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>secuencias_df<span class="sc">$</span>secuencia</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ATCG" "GCTA" "TACG" "CGTA"</code></pre>
+</div>
+</div>
+<p>Esto nos devolverá un vector con las secuencias de ADN. También podemos acceder a las filas de un data frame usando índices. Por ejemplo, para acceder a la primera fila del data frame, escribimos: <code>zjnsecuencias_df[1, ]</code> Esto nos devolverá la primera fila del data frame, que contiene la información sobre la secuencia <code>seq1</code>. También podemos realizar operaciones con data frames. Por ejemplo, si queremos agregar una nueva columna que contenga el número de A’s en cada secuencia, escribimos: <code>zjnsecuencias_df$num_A &lt;- sapply(secuencias_df$secuencia, function(x) sum(str_count(x, "A")))</code> Esto nos agregará una nueva columna <code>num_A</code> al data frame que contiene el número de A’s en cada secuencia de ADN.</p>
+<p><strong>Nota: los data frames son muy importantes en R, especialmente cuando trabajamos con datos de secuencias de ADN, ya que podemos organizar la información sobre las secuencias en un data frame para facilitar su análisis.</strong> Por ejemplo, podemos agregar más columnas al data frame para incluir información adicional sobre las secuencias, como la especie a la que pertenecen, la ubicación geográfica donde se encontraron, etc. Esto nos permitirá realizar análisis más complejos y obtener insights más profundos sobre nuestras secuencias de ADN.</p>
+</section>
+<section id="listas" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Listas</h1>
+<p>Las listas son una estructura de datos muy flexible en R. Una lista es <em>una colección de elementos que pueden ser de diferentes tipos</em>. Para crear una lista en R, usamos la función <code>list()</code>. Por ejemplo, para crear una lista que contenga información sobre secuencias de ADN, escribimos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>secuencias_lista <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">c</span>(<span class="st">"seq1"</span>, <span class="st">"seq2"</span>, <span class="st">"seq3"</span>, <span class="st">"seq4"</span>),</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">secuencia =</span> <span class="fu">c</span>(<span class="st">"ATCG"</span>, <span class="st">"GCTA"</span>, <span class="st">"TACG"</span>, <span class="st">"CGTA"</span>),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">longitud =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>En este caso, <code>secuencias_lista</code> es una lista que contiene información sobre las secuencias de ADN. La lista tiene tres elementos: <code>id</code>, <code>secuencia</code> y <code>longitud</code>. Cada elemento de la lista es un vector que contiene la información correspondiente. Podemos acceder a los elementos de una lista usando el operador <code>$</code>. Por ejemplo, para acceder al elemento <code>secuencia</code>, escribimos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>secuencias_lista<span class="sc">$</span>secuencia</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ATCG" "GCTA" "TACG" "CGTA"</code></pre>
+</div>
+</div>
+<p>Esto nos devolverá un vector con las secuencias de ADN. También podemos acceder a los elementos de una lista usando índices. Por ejemplo, para acceder al primer elemento de la lista, escribimos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>secuencias_lista[[<span class="dv">1</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "seq1" "seq2" "seq3" "seq4"</code></pre>
+</div>
+</div>
+<p>Esto nos devolverá el vector <code>id</code> que contiene los identificadores de las secuencias. Las listas son muy útiles cuando queremos almacenar información que no necesariamente tiene la misma estructura, como por ejemplo, una lista de secuencias de ADN donde cada secuencia puede tener una longitud diferente. Por ejemplo, podemos crear una lista de secuencias de ADN donde cada secuencia es un vector de caracteres de diferente longitud:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>secuencias_lista <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">seq1 =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>),</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">seq2 =</span> <span class="fu">c</span>(<span class="st">"G"</span>, <span class="st">"C"</span>, <span class="st">"T"</span>, <span class="st">"A"</span>),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">seq3 =</span> <span class="fu">c</span>(<span class="st">"T"</span>, <span class="st">"A"</span>, <span class="st">"C"</span>),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">seq4 =</span> <span class="fu">c</span>(<span class="st">"C"</span>, <span class="st">"G"</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>En este caso, <code>secuencias_lista</code> es una lista que contiene cuatro elementos, cada uno de los cuales es un vector de caracteres que representa una secuencia de ADN. Cada secuencia tiene una longitud diferente, lo que demuestra la flexibilidad de las listas en R.</p>
+<p>Con eso concluye esta sección introductoria sobre R para principiantes. En las siguientes secciones, aprenderemos a usar R para realizar análisis más complejos con nuestros datos de secuencias de ADN mitocondrial.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
