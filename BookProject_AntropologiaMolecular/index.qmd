@@ -1,0 +1,12 @@
+# Bienvenida
+
+En esta sección, aprenderemos a usar R para trabajar con datos de secuencias de ADN mitocondrial (mtDNA). R es un lenguaje de programación y un entorno de software para análisis estadístico y gráficos. Es ampliamente utilizado en la comunidad científica, especialmente en biología y genética, debido a su capacidad para manejar grandes conjuntos de datos y realizar análisis complejos.
+
+## Instalación de R y RStudio
+Para comenzar, necesitamos instalar R y RStudio. R es el lenguaje de programación, mientras que RStudio es un entorno de desarrollo integrado (IDE) que facilita el uso de R.
+1. **Instalar R**: Puedes descargar R desde el sitio web del [Proyecto R](https://www.r-project.org/). Sigue las instrucciones para tu sistema operativo (Windows, macOS o Linux).
+2. **Instalar RStudio**: Después de instalar R, puedes descargar RStudio desde el sitio web de [RStudio](https://www.rstudio.com/products/rstudio/download/). Elige la versión gratuita (RStudio Desktop) y sigue las instrucciones de instalación.
+
+Una vez que hayas instalado R y RStudio, abre RStudio para comenzar a trabajar con tus datos de secuencias de ADN mitocondrial. En la próxima sección, aprenderemos cómo cargar y manipular estos datos en R.
+
+¡Bienvenidos al **Laboratorio de Antropología Molecular** de la Facultad de Ciencias, UNAM!. 

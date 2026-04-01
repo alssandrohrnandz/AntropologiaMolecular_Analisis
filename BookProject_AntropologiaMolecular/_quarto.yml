@@ -1,0 +1,26 @@
+project:
+  type: book
+
+book:
+  title: "Página de Análisis de Datos Genéticos de Antropología Molecular"
+  author: "Alessandro López-Hernández"
+  date: "1/4/2026"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - Laboratorio_1.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+
+

@@ -1,0 +1,41 @@
+# Trabajos en el Laboratorio I
+
+En el laboratorio de Antropología Molecular, es común trabajar con datos de secuencias de ADN mitocondrial (mtDNA). En esta sección, aprenderemos a descargar datos desde GenBank y a leerlos en R para su posterior análisis.
+
+*Nota: Asegúrate de tener listos tus archivos de secuencias en formato FASTA antes de comenzar. Si no los tienes, puedes continuar siguiendo las instrucciones que daré a continuación.*
+
+## 1. Descarga de datos desde GenBank
+
+**GenBank** es una base de datos pública de secuencias de ADN mantenida por el NCBI [National Center for Biotechnology Information; @Sayers2022]. Para descargar datos de GenBank, puedes utilizar la función `rentrez` en R o hacerlo manualmente a través de la página web del NCBI. 
+Para descargar los datos manualmente, naveguen a la página de NCBI y seleccionen el formato FASTA como se muestra a continuación:
+
+![Página de inicio de NCBI. Las opciones por default se muestran en la imagen](imagenes/NCBI_1.png)
+
+Lo primero que debemos hacer es buscar una secuencia de interés. Para esto, podemos utilizar el número de acceso (accession number) o el nombre del organismo. En este caso, decidí usar solo las secuencias de mtDNA de la región control, que es una región comúnmente utilizada en estudios de genética de poblaciones. Para esto, busqué "Human mitochondrial DNA control region " en la barra de búsqueda y seleccioné las secuencias que me interesaban. 
+
+![Captura de pantalla de la búsqueda en NCBI. En la barra de búsqueda se muestra "HVR1 mtDNA"](imagenes/NCBI_2.png)
+
+Una vez que tenga identificadas las secuencias de interés, puedo descargarlas directamente, sin embargo, para este ejercicio, usaremos el paquete `ape`para descargar las secuencias directamente desde R, lo que nos permitirá automatizar el proceso y evitar errores manuales. Para ello, debo identificar el número de acceso de la secuencia que quiero descargar. En este caso, usaré la secuencia con el número de acceso "U37731.1", que corresponde a una secuencia de mtDNA humana de la región control.
+
+
+```r
+
+#Cargamos el paquete "ape"
+library(ape)
+
+#Descargamos la secuencia de interés utilizando su número de acceso
+secuencia_1 <- read.GenBank("U37731.1")
+
+# Visualizamos qué descargamos
+print(secuencia_1)
+```
+
+Sin embargo, es necesario que se descarguen al menos un número de secuencias para que el código funcione correctamente. Para esto, podemos descargar varias secuencias utilizando sus números de acceso. Por ejemplo, podemos descargar las siguientes secuencias:
+```r
+# Descargamos varias secuencias utilizando sus números de acceso
+secuencias <- read.GenBank(c("U37731.1", "U37730.1", "U37733.1", "U37737.1", "U37752.1",
+                             "U37751.1", "U37739.1", "U37743.1")) 
+# Visualizamos las secuencias descargadas
+print(secuencias)
+```
+

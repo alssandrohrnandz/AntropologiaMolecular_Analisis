@@ -1,0 +1,15 @@
+# References {.unnumbered}
+@article{Sayers2022,
+   abstract = {GenBank® (https://www.ncbi.nlm.nih.gov/genbank/) is a comprehensive, public database that contains 15.3 trillion base pairs from over 2.5 billion nucleotide sequences for 504 000 formally described species. Recent updates include resources for data from the SARS-CoV-2 virus, including a SARS-CoV-2 landing page, NCBI Datasets, NCBI Virus and the Submission Portal. We also discuss upcoming changes to GI identifiers, a new data management interface for BioProject, and advice for providing contextual metadata in submissions.},
+   author = {Eric W Sayers and Mark Cavanaugh and Karen Clark and Kim D Pruitt and Conrad L Schoch and Stephen T Sherry and Ilene Karsch-Mizrachi},
+   doi = {10.1093/nar/gkab1135},
+   issn = {0305-1048},
+   issue = {D1},
+   journal = {Nucleic Acids Research},
+   month = {1},
+   pages = {D161-D164},
+   title = {GenBank},
+   volume = {50},
+   url = {https://doi.org/10.1093/nar/gkab1135},
+   year = {2022}
+}
