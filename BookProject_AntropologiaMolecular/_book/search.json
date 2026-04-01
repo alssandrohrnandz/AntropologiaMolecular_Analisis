@@ -10,6 +10,16 @@
     ]
   },
   {
+    "objectID": "index.html#instalación-de-r-y-rstudio",
+    "href": "index.html#instalación-de-r-y-rstudio",
+    "title": "Página de Análisis de Datos Genéticos de Antropología Molecular",
+    "section": "1.1 Instalación de R y RStudio",
+    "text": "1.1 Instalación de R y RStudio\nPara comenzar, necesitamos instalar R y RStudio. R es el lenguaje de programación, mientras que RStudio es un entorno de desarrollo integrado (IDE) que facilita el uso de R. 1. Instalar R: Puedes descargar R desde el sitio web del Proyecto R. Sigue las instrucciones para tu sistema operativo (Windows, macOS o Linux). 2. Instalar RStudio: Después de instalar R, puedes descargar RStudio desde el sitio web de RStudio. Elige la versión gratuita (RStudio Desktop) y sigue las instrucciones de instalación.\nUna vez que hayas instalado R y RStudio, abre RStudio para comenzar a trabajar con tus datos de secuencias de ADN mitocondrial. En la próxima sección, aprenderemos cómo cargar y manipular estos datos en R.\n¡Bienvenidos al Laboratorio de Antropología Molecular de la Facultad de Ciencias, UNAM!.\n\n\n\nMiembros del Laboratorio de AM en Teotihuacán. Créditos a Alessandro López-Hernandez, 2023.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bienvenida</span>"
+    ]
+  },
+  {
     "objectID": "intro.html",
     "href": "intro.html",
     "title": "2  R para principiantes",
@@ -17,46 +27,6 @@
     "text": "Nota: esta sección está diseñada para estudiantes que no tienen experiencia previa en programación, en espacial a R. Si ya tienes experiencia en programación, puedes saltar esta sección.\nEn esta sección, aprenderemos a usar R para trabajar con datos de secuencias de ADN mitocondrial (mtDNA). R es un lenguaje de programación y un entorno de software para análisis estadístico y gráficos. Es ampliamente utilizado en la comunidad científica, especialmente en biología y genética, debido a su capacidad para manejar grandes conjuntos de datos y realizar análisis complejos.\n\n\n\nInterfaz de RStudio, un entorno de desarrollo integrado para R. Créditos a “GeeksForGeeks”\n\n\nArriba pueden observar lo que es una interfaz de RStudio. La ventana de la izquierda es la consola. La consola es donde se ejecutan las instrucciones que escribimos en el script. Por ejemplo, si queremos cargar un paquete, tenemos que escribir library(nombre_del_paquete) en el script y luego ejecutar esa línea de código para que se cargue el paquete en la consola.\n\n\n\nEjecución de una instrucción en RStudio.\n\n\nComo notarás, no se ejecuta nada más. !Y eso está bien!. No prestemos por ahora atención sobre los mensajes que aparecen en la consola. Lo importante es que se ejecute la instrucción que escribimos en el script. En este caso, lo que hicimos fue cargar el paquete ape, que es un paquete muy útil para trabajar con datos de secuencias de ADN.\nLa ventana de la derecha es la consola. La consola es donde se ejecutan las instrucciones que escribimos en el script. Por ejemplo, si queremos cargar un paquete, tenemos que escribir library(nombre_del_paquete) en el script y luego ejecutar esa línea de código para que se cargue el paquete en la consola.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>R para principiantes</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "3  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "(article?){Sayers2022, abstract = {GenBank® (https://www.ncbi.nlm.nih.gov/genbank/) is a comprehensive, public database that contains 15.3 trillion base pairs from over 2.5 billion nucleotide sequences for 504 000 formally described species. Recent updates include resources for data from the SARS-CoV-2 virus, including a SARS-CoV-2 landing page, NCBI Datasets, NCBI Virus and the Submission Portal. We also discuss upcoming changes to GI identifiers, a new data management interface for BioProject, and advice for providing contextual metadata in submissions.}, author = {Eric W Sayers and Mark Cavanaugh and Karen Clark and Kim D Pruitt and Conrad L Schoch and Stephen T Sherry and Ilene Karsch-Mizrachi}, doi = {10.1093/nar/gkab1135}, issn = {0305-1048}, issue = {D1}, journal = {Nucleic Acids Research}, month = {1}, pages = {D161-D164}, title = {GenBank}, volume = {50}, url = {https://doi.org/10.1093/nar/gkab1135}, year = {2022} }",
-    "crumbs": [
-      "References"
-    ]
-  },
-  {
-    "objectID": "index.html#descarga-de-datos-desde-genbank",
-    "href": "index.html#descarga-de-datos-desde-genbank",
-    "title": "Página de Análisis de Datos Genéticos de Antropología Molecular",
-    "section": "1.1 1. Descarga de datos desde GenBank",
-    "text": "1.1 1. Descarga de datos desde GenBank\nGenBank es una base de datos pública de secuencias de ADN mantenida por el NCBI (National Center for Biotechnology Information; Sayers et al. (2022)). Para descargar datos de GenBank, puedes utilizar la función rentrez en R o hacerlo manualmente a través de la página web del NCBI. Para descargar los datos manualmente, naveguen a la página de NCBI y seleccionen el formato FASTA como se muestra a continuación:\n\n\n\nPágina de inicio de NCBI. Las opciones por default se muestran en la imagen",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Trabajos en el Laboratorio I</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#lectura-en-r",
-    "href": "index.html#lectura-en-r",
-    "title": "Página de Análisis de Datos Genéticos de Antropología Molecular",
-    "section": "1.2 2. Lectura en R",
-    "text": "1.2 2. Lectura en R\nUna vez descargado el archivo, utilizaremos el paquete ape para cargarlo en nuestro entorno de trabajo.\n#| eval: false\n\n# Cargamos el paquete necesario\nlibrary(ape)\n\n# Leemos nuestra secuencia\nmis_secuencias &lt;- read.dna(\"datos/secuencia_hvr1.fasta\", format = \"fasta\")\n\n\n\n\nSayers, Eric W, Mark Cavanaugh, Karen Clark, Kim D Pruitt, Conrad L Schoch, Stephen T Sherry, and Ilene Karsch-Mizrachi. 2022. “GenBank.” Nucleic Acids Research 50 (January): D161–64. https://doi.org/10.1093/nar/gkab1135.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Trabajos en el Laboratorio I</span>"
     ]
   },
   {
@@ -80,13 +50,23 @@
     ]
   },
   {
-    "objectID": "index.html#instalación-de-r-y-rstudio",
-    "href": "index.html#instalación-de-r-y-rstudio",
-    "title": "Página de Análisis de Datos Genéticos de Antropología Molecular",
-    "section": "1.1 Instalación de R y RStudio",
-    "text": "1.1 Instalación de R y RStudio\nPara comenzar, necesitamos instalar R y RStudio. R es el lenguaje de programación, mientras que RStudio es un entorno de desarrollo integrado (IDE) que facilita el uso de R. 1. Instalar R: Puedes descargar R desde el sitio web del Proyecto R. Sigue las instrucciones para tu sistema operativo (Windows, macOS o Linux). 2. Instalar RStudio: Después de instalar R, puedes descargar RStudio desde el sitio web de RStudio. Elige la versión gratuita (RStudio Desktop) y sigue las instrucciones de instalación.\nUna vez que hayas instalado R y RStudio, abre RStudio para comenzar a trabajar con tus datos de secuencias de ADN mitocondrial. En la próxima sección, aprenderemos cómo cargar y manipular estos datos en R.\n¡Bienvenidos al **Laboratorio de Antropología Molecular* de la Facultad de Ciencias, UNAM!.",
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "4  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Bienvenida</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "(article?){Sayers2022, abstract = {GenBank® (https://www.ncbi.nlm.nih.gov/genbank/) is a comprehensive, public database that contains 15.3 trillion base pairs from over 2.5 billion nucleotide sequences for 504 000 formally described species. Recent updates include resources for data from the SARS-CoV-2 virus, including a SARS-CoV-2 landing page, NCBI Datasets, NCBI Virus and the Submission Portal. We also discuss upcoming changes to GI identifiers, a new data management interface for BioProject, and advice for providing contextual metadata in submissions.}, author = {Eric W Sayers and Mark Cavanaugh and Karen Clark and Kim D Pruitt and Conrad L Schoch and Stephen T Sherry and Ilene Karsch-Mizrachi}, doi = {10.1093/nar/gkab1135}, issn = {0305-1048}, issue = {D1}, journal = {Nucleic Acids Research}, month = {1}, pages = {D161-D164}, title = {GenBank}, volume = {50}, url = {https://doi.org/10.1093/nar/gkab1135}, year = {2022} }",
+    "crumbs": [
+      "References"
     ]
   }
 ]

@@ -10,3 +10,5 @@ Para comenzar, necesitamos instalar R y RStudio. R es el lenguaje de programaci�
 Una vez que hayas instalado R y RStudio, abre RStudio para comenzar a trabajar con tus datos de secuencias de ADN mitocondrial. En la próxima sección, aprenderemos cómo cargar y manipular estos datos en R.
 
 ¡Bienvenidos al **Laboratorio de Antropología Molecular** de la Facultad de Ciencias, UNAM!. 
+
+![Miembros del Laboratorio de AM en Teotihuacán. Créditos a Alessandro López-Hernandez, 2023.](imagenes/Grupo_AM.png)
