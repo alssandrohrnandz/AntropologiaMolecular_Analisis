@@ -58,6 +58,8 @@ BiocManager::install("msa")
 **Nota: Para que el alineamiento funcione correctamente, el paquete `msa` requiere que las secuencias estén en un formato "AAStringSet" o "DNAStringSet". Sin embargo, el paquete `ape` devuelve las secuencias en un formato "DNAbin". Por lo tanto, es necesario transformar las secuencias descargadas en un formato compatible con el paquete `msa` antes de alinearlas. Para esto, podemos usar la función `as.DNAbin` del paquete `ape` para transformar las secuencias en un formato compatible con el paquete `msa`:
 
 ```{r}
+#| message: false
+#| warning: false
 suppressPackageStartupMessages(library(ape))
 suppressPackageStartupMessages(library(msa))
 suppressPackageStartupMessages(library(Biostrings))
