@@ -1,4 +1,6 @@
 ## -----------------------------------------------------------------------------
+options(warn = -1)  # oculta warnings
+
 # Cargamos el paquete "ape"
 library(ape)
 # Descargamos la secuencia de interés utilizando su número de acceso
@@ -26,10 +28,10 @@ BiocManager::install("msa")
 
 
 ## -----------------------------------------------------------------------------
-suppressPackageStartupMessages(library(ape))
+#| message: false
+#| warning: false
 suppressPackageStartupMessages(library(msa))
 suppressPackageStartupMessages(library(Biostrings))
-suppressPackageStartupMessages(library(phangorn))
 
 # Descargamos las secuencias utilizando sus números de acceso
 secuencias_crudas <- read.GenBank(c("U37731.1", "U37730.1", "U37733.1", "U37737.1", "U37752.1",
@@ -83,7 +85,7 @@ plot(dendrograma, main = "Dendrograma de Distancias Genéticas", xlab = "Secuenc
 
 ## -----------------------------------------------------------------------------
 # Cargamos el paquete "phangorn" para usar la función upgma
-library(phangorn)
+suppressPackageStartupMessages(library(phangorn))
 # Construimos el árbol filogenético utilizando el método de UPGMA
 tree_upgma <- upgma(distancias_geneticas)
 # Visualizamos el árbol filogenético
