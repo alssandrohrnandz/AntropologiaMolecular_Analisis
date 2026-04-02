@@ -236,6 +236,9 @@ window.Quarto = {
   <li><a href="#alineamiento-de-secuencias" id="toc-alineamiento-de-secuencias" class="nav-link" data-scroll-target="#alineamiento-de-secuencias"><span class="header-section-number">4</span> Alineamiento de secuencias</a></li>
   <li><a href="#ejercicio" id="toc-ejercicio" class="nav-link" data-scroll-target="#ejercicio"><span class="header-section-number">5</span> Ejercicio</a></li>
   <li><a href="#analisis-de-distancias-genéticas" id="toc-analisis-de-distancias-genéticas" class="nav-link" data-scroll-target="#analisis-de-distancias-genéticas"><span class="header-section-number">6</span> Analisis de Distancias Genéticas</a></li>
+  <li><a href="#algoritmos-de-construcción-de-árboles-filogenéticos" id="toc-algoritmos-de-construcción-de-árboles-filogenéticos" class="nav-link" data-scroll-target="#algoritmos-de-construcción-de-árboles-filogenéticos"><span class="header-section-number">7</span> Algoritmos de construcción de árboles filogenéticos</a></li>
+  <li><a href="#ejercicio-2" id="toc-ejercicio-2" class="nav-link" data-scroll-target="#ejercicio-2"><span class="header-section-number">8</span> Ejercicio 2:</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">9</span> Referencias</a></li>
   </ul>
 </nav>
     </div>
@@ -344,29 +347,16 @@ Base composition:
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Instalación del paquete msa</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"msa"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Bioconductor version 3.22 (BiocManager 1.30.27), R 4.5.1 (2025-06-13 ucrt)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package(s) not installed when version(s) same as or greater than current; use
-  `force = TRUE` to re-install: 'msa'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Installation paths not writeable, unable to update packages
-  path: C:/Program Files/R/R-4.5.1/library
-  packages:
-    boot, cluster, foreign, lattice, Matrix, mgcv, nlme, rpart, survival</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Old packages: 'collections', 'digest', 'fs', 'languageserver', 'magrittr',
-  'processx', 'ps', 'purrr', 'Rcpp', 'rlang', 'vctrs', 'vroom', 'xfun', 'xml2'</code></pre>
-</div>
 </div>
 <p><em>Bioconductor</em> es un proyecto de software de código abierto que proporciona herramientas para el análisis de datos genómicos y biológicos. El paquete <code>msa</code> es una herramienta de alineamiento de secuencias que permite alinear múltiples secuencias de ADN, ARN o proteínas. Para alinear las secuencias descargadas, podemos usar la función <code>msa</code> del paquete <code>msa</code>.</p>
 <p>**Nota: Para que el alineamiento funcione correctamente, el paquete <code>msa</code> requiere que las secuencias estén en un formato “AAStringSet” o “DNAStringSet”. Sin embargo, el paquete <code>ape</code> devuelve las secuencias en un formato “DNAbin”. Por lo tanto, es necesario transformar las secuencias descargadas en un formato compatible con el paquete <code>msa</code> antes de alinearlas. Para esto, podemos usar la función <code>as.DNAbin</code> del paquete <code>ape</code> para transformar las secuencias en un formato compatible con el paquete <code>msa</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos los paquetes necesarios</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(msa)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos los paquetes necesarios para la sesión</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(msa)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'msa' was built under R version 4.5.2</code></pre>
 </div>
@@ -478,26 +468,26 @@ Attaching package: 'Biostrings'</code></pre>
 
     strsplit</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Biostrings)</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Descargamos las secuencias utilizando sus números de acceso</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>secuencias_crudas <span class="ot">&lt;-</span> <span class="fu">read.GenBank</span>(<span class="fu">c</span>(<span class="st">"U37731.1"</span>, <span class="st">"U37730.1"</span>, <span class="st">"U37733.1"</span>, <span class="st">"U37737.1"</span>, <span class="st">"U37752.1"</span>,</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"U37751.1"</span>, <span class="st">"U37739.1"</span>, <span class="st">"U37743.1"</span>))</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Este paso es escencial para convertir las secuencias al formato que el paquete msa requiere. El paquete ape devuelve las secuencias en un formato "DNAbin", por lo que es necesario transformarlas a un formato compatible con el paquete msa, como "DNAStringSet". Para esto, podemos usar la función as.character para transformar las secuencias en un formato compatible con el paquete msa.</span></span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>secuencias_letras <span class="ot">&lt;-</span> <span class="fu">as.character</span>(secuencias_crudas) <span class="co"># Transformamos las secuencias en un formato compatible con el paquete msa</span></span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Esto convierte c("A", "T", "G") en "ATG" para cada individuo</span></span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>secuencias_texto <span class="ot">&lt;-</span> <span class="fu">sapply</span>(secuencias_letras, paste, <span class="at">collapse =</span> <span class="st">""</span>)</span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertimos el texto limpio al formato que msa exige</span></span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>secuencias_biostrings <span class="ot">&lt;-</span> <span class="fu">DNAStringSet</span>(secuencias_texto)</span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Alineamos las secuencias utilizando la función msa</span></span>
-<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>alineamiento <span class="ot">&lt;-</span> <span class="fu">msa</span>(secuencias_biostrings, <span class="at">method =</span> <span class="st">"Muscle"</span>)</span>
-<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizamos el alineamiento</span></span>
-<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(alineamiento)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Biostrings)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Descargamos las secuencias utilizando sus números de acceso</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>secuencias_crudas <span class="ot">&lt;-</span> <span class="fu">read.GenBank</span>(<span class="fu">c</span>(<span class="st">"U37731.1"</span>, <span class="st">"U37730.1"</span>, <span class="st">"U37733.1"</span>, <span class="st">"U37737.1"</span>, <span class="st">"U37752.1"</span>,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"U37751.1"</span>, <span class="st">"U37739.1"</span>, <span class="st">"U37743.1"</span>))</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Este paso es escencial para convertir las secuencias al formato que el paquete msa requiere. El paquete ape devuelve las secuencias en un formato "DNAbin", por lo que es necesario transformarlas a un formato compatible con el paquete msa, como "DNAStringSet". Para esto, podemos usar la función as.character para transformar las secuencias en un formato compatible con el paquete msa.</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>secuencias_letras <span class="ot">&lt;-</span> <span class="fu">as.character</span>(secuencias_crudas) <span class="co"># Transformamos las secuencias en un formato compatible con el paquete msa</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Esto convierte c("A", "T", "G") en "ATG" para cada individuo</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>secuencias_texto <span class="ot">&lt;-</span> <span class="fu">sapply</span>(secuencias_letras, paste, <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertimos el texto limpio al formato que msa exige</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>secuencias_biostrings <span class="ot">&lt;-</span> <span class="fu">DNAStringSet</span>(secuencias_texto)</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Alineamos las secuencias utilizando la función msa</span></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>alineamiento <span class="ot">&lt;-</span> <span class="fu">msa</span>(secuencias_biostrings, <span class="at">method =</span> <span class="st">"Muscle"</span>)</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizamos el alineamiento</span></span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(alineamiento)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>MUSCLE 3.8.31   
 
@@ -528,25 +518,25 @@ Con TTCTTTCATGGGGAAGCAGATTTGGG...CCCCTCAGAT-AGGGGTCCCTTGAC Consensus </code></pr
 <li>Guarda el alineamiento en un archivo FASTA para su posterior análisis. Para ello, necesitas usar la función <code>writeXStringSet</code> del paquete <code>Biostrings</code> para guardar el alineamiento en un archivo FASTA. Aquí te dejo un ejemplo de cómo hacerlo:</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardamos el alineamiento en un archivo FASTA</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>alineamiento_texto <span class="ot">&lt;-</span> <span class="fu">as</span>(alineamiento, <span class="st">"DNAStringSet"</span>)</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># El archivo se va a guardar donde sea que tengas tu proyecto de R. Si quieres guardarlo en una carpeta específica, solo tienes que especificar la ruta completa en el argumento filepath. </span></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">writeXStringSet</span>(alineamiento_texto, <span class="at">filepath =</span> <span class="st">"./alineamiento.fasta"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardamos el alineamiento en un archivo FASTA</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>alineamiento_texto <span class="ot">&lt;-</span> <span class="fu">as</span>(alineamiento, <span class="st">"DNAStringSet"</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># El archivo se va a guardar donde sea que tengas tu proyecto de R. Si quieres guardarlo en una carpeta específica, solo tienes que especificar la ruta completa en el argumento filepath. </span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">writeXStringSet</span>(alineamiento_texto, <span class="at">filepath =</span> <span class="st">"../Results/alineamiento.fasta"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="analisis-de-distancias-genéticas" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Analisis de Distancias Genéticas</h1>
 <p>Una vez que tenemos nuestro alineamiento de secuencias, podemos calcular las distancias genéticas entre las secuencias para entender las relaciones evolutivas entre ellas. Para esto, podemos usar la función <code>dist.dna</code> del paquete <code>ape</code>, que calcula las distancias genéticas entre las secuencias alineadas utilizando diferentes modelos de sustitución de nucleótidos. Anteriormente, era necesario transformar el alineamiento al formato “DNAbin” para que la función <code>dist.dna</code> pueda trabajar con él. Sin embargo, el paquete <code>msa</code> devuelve el alineamiento en un formato “MsaDNAMultipleAlignment”, por lo que es necesario transformar el alineamiento al formato “DNAbin” antes de calcular las distancias genéticas. Para esto, podemos usar la función <code>as.DNAbin</code> del paquete <code>ape</code> para transformar el alineamiento al formato “DNAbin”:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformamos el alineamiento al formato "DNAbin"</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>alineamiento_dnabin <span class="ot">&lt;-</span> <span class="fu">as.DNAbin</span>(alineamiento) </span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculamos las distancias genéticas entre las secuencias utilizando la función dist.dna</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>distancias_geneticas <span class="ot">&lt;-</span> <span class="fu">dist.dna</span>(alineamiento_dnabin, <span class="at">model =</span> <span class="st">"K80"</span>) <span class="co"># Puedes cambiar el modelo de sustitución de nucleótidos si lo deseas</span></span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizamos las distancias genéticas</span></span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(distancias_geneticas)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformamos el alineamiento al formato "DNAbin"</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>alineamiento_dnabin <span class="ot">&lt;-</span> <span class="fu">as.DNAbin</span>(alineamiento) </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculamos las distancias genéticas entre las secuencias utilizando la función dist.dna</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>distancias_geneticas <span class="ot">&lt;-</span> <span class="fu">dist.dna</span>(alineamiento_dnabin, <span class="at">model =</span> <span class="st">"K80"</span>) <span class="co"># Puedes cambiar el modelo de sustitución de nucleótidos si lo deseas</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizamos las distancias genéticas</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(distancias_geneticas)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            U37733.1    U37731.1    U37730.1    U37752.1    U37737.1
 U37731.1 0.049988834                                                
@@ -566,16 +556,121 @@ U37743.1 0.010782089
 U37751.1 0.016261596 0.016261596</code></pre>
 </div>
 </div>
-<p>En este punto, estas funciones te serán conocidas puesto que has trabajado con ellas en el Laboratorio de Antropología Molecular. La distancia genética usada en este modelo es el modelo de Kimura de 2 parámetros (K80), que asume que las sustituciones de nucleótidos pueden ser transiciones (cambio entre purinas o entre pirimidinas) o transversiones (cambio entre purina y pirimidina), y que las tasas de sustitución son diferentes para cada tipo de cambio.</p>
+<p>En este punto, estas funciones te serán conocidas puesto que has trabajado con ellas en el Laboratorio de Antropología Molecular. La distancia genética usada en este modelo es el modelo de Kimura de 2 parámetros (K80), que asume que las sustituciones de nucleótidos pueden ser transiciones (cambio entre purinas o entre pirimidinas) o transversiones (cambio entre purina y pirimidina), y que las tasas de sustitución son diferentes para cada tipo de cambio <span class="citation" data-cites="Elias2007">(<a href="#ref-Elias2007" role="doc-biblioref">Elias and Lagergren 2007</a>)</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/kimura80.jpg" class="img-fluid figure-img"></p>
 <figcaption>Modelo de sustitución de acuerdo a Kimura (1980) o conocido como “Kimura de 2 parámetros”. La probabilidad de transición se define como alfa <span class="math inline">\(\alpha\)</span> mientras que la probabilidad de transversión se define como beta <span class="math inline">\(\beta\)</span></figcaption>
 </figure>
 </div>
+<p><strong>Nota: El modelo de Kimura de 2 parámetros es uno de los modelos más simples para calcular distancias genéticas, pero existen otros modelos más complejos que pueden ser utilizados dependiendo del tipo de datos y del análisis que se quiera realizar. Es importante elegir el modelo adecuado para obtener resultados precisos y confiables. Discutirlo con tu tutor(a) es muy importante.</strong></p>
+<p>Ahora que tenemos las distancias genéticas, es necesario observar gráficamente las distancias entre secuencias. Podemos hacer esto generando un plot de las distancias genéticas utilizando un plot de calor (heatmap) o un dendrograma. Para generar un heatmap, podemos usar la función <code>heatmap</code> del paquete <code>stats</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos un heatmap de las distancias genéticas</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(<span class="fu">as.matrix</span>(distancias_geneticas), <span class="at">symm =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"red"</span>))(<span class="dv">100</span>), <span class="at">margins =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Laboratorio_1_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Los colores en el heatmap representan la magnitud de las distancias genéticas entre las secuencias, donde el blanco representa distancias genéticas cercanas a cero (secuencias muy similares) y el rojo representa distancias genéticas mayores (secuencias más diferentes).</p>
+<p>Para generar un dendrograma, podemos usar la función <code>hclust</code> del paquete <code>stats</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos un dendrograma de las distancias genéticas</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>dendrograma <span class="ot">&lt;-</span> <span class="fu">hclust</span>(distancias_geneticas, <span class="at">method =</span> <span class="st">"average"</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendrograma, <span class="at">main =</span> <span class="st">"Dendrograma de Distancias Genéticas"</span>, <span class="at">xlab =</span> <span class="st">"Secuencias"</span>, <span class="at">ylab =</span> <span class="st">"Distancia Genética"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Laboratorio_1_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El dendrograma muestra las relaciones evolutivas entre las secuencias, donde las secuencias que están más cercanas entre sí en el dendrograma tienen distancias genéticas menores, lo que sugiere que están más relacionadas evolutivamente. Las secuencias que están más alejadas entre sí en el dendrograma tienen distancias genéticas mayores, lo que sugiere que están menos relacionadas evolutivamente.</p>
+</section>
+<section id="algoritmos-de-construcción-de-árboles-filogenéticos" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Algoritmos de construcción de árboles filogenéticos</h1>
+<p>Una vez que tenemos las distancias genéticas entre las secuencias, podemos construir un árbol filogenético para visualizar las relaciones evolutivas entre las secuencias. Para esto, podemos usar diferentes algoritmos de construcción de árboles filogenéticos, como el método de UPGMA (Unweighted Pair Group Method with Arithmetic Mean) o el método de Neighbor-Joining. En este caso, usaremos el método de UPGMA para construir el árbol filogenético utilizando la función <code>upgma</code> del paquete <code>phangorn</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos el paquete "phangorn" para usar la función upgma</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phangorn)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'phangorn' was built under R version 4.5.2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construimos el árbol filogenético utilizando el método de UPGMA</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>tree_upgma <span class="ot">&lt;-</span> <span class="fu">upgma</span>(distancias_geneticas)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizamos el árbol filogenético</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tree_upgma, <span class="at">main =</span> <span class="st">"UPGMA"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Laboratorio_1_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Y también podemos usar el método de Neighbor-Joining para construir el árbol filogenético utilizando la función <code>nj</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construimos el árbol filogenético utilizando el método de Neighbor-Joining</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>tree_nj <span class="ot">&lt;-</span> <span class="fu">nj</span>(distancias_geneticas)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizamos el árbol filogenético</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tree_nj, <span class="at">main =</span> <span class="st">"Neighbor-Joining"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Laboratorio_1_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hay que recordar que UPGMA asume que las tasas de evolución son constantes a lo largo del tiempo (reloj molecular), lo que puede no ser siempre el caso, mientras que Neighbor-Joining no hace esta suposición y puede ser más adecuado para datos con tasas de evolución variables. Es importante elegir el método adecuado para construir el árbol filogenético dependiendo de las características de los datos y del análisis que se quiera realizar. Discutirlo con tu tutor(a) es muy importante.</p>
+<p>Por otra parte, es importante generar un árbol filogenético con soporte estadístico para evaluar la confiabilidad de las relaciones evolutivas entre las secuencias. Para esto, podemos usar el método de bootstrap para generar múltiples réplicas del árbol filogenético y calcular el soporte estadístico para cada nodo del árbol. Para esto, podemos usar la función <code>bootstrap</code> del paquete <code>phangorn</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>fun_nj <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">nj</span>(<span class="fu">dist.dna</span>(x, <span class="at">model =</span> <span class="st">"K80"</span>))</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos un árbol filogenético con soporte estadístico utilizando el método de bootstrap</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>bs_values <span class="ot">&lt;-</span> <span class="fu">boot.phylo</span>(tree_nj, alineamiento_dnabin, fun_nj, <span class="at">B =</span> <span class="dv">100</span>)<span class="co"># B es el número de réplicas de bootstrap</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Running bootstraps:       100 / 100
+Calculating bootstrap values... done.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizamos el árbol filogenético con soporte estadístico</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tree_nj, <span class="at">main =</span> <span class="st">"Árbol Final con Soporte de Bootstrap"</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nodelabels</span>(bs_values, <span class="at">adj =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="sc">-</span><span class="fl">0.5</span>), <span class="at">frame =</span> <span class="st">"n"</span>, <span class="at">cex =</span> <span class="fl">0.8</span>,</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">col =</span> <span class="fu">ifelse</span>(bs_values <span class="sc">&gt;</span> <span class="dv">70</span>, <span class="st">"darkgreen"</span>, <span class="st">"red"</span>))  <span class="co"># Agregamos los valores de bootstrap a los nodos del árbol</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Laboratorio_1_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En este código, <code>boot.phylo</code> genera múltiples réplicas del árbol filogenético utilizando el método de bootstrap y calcula el soporte estadístico para cada nodo del árbol. Los valores de bootstrap se agregan a los nodos del árbol utilizando la función <code>nodelabels</code>, donde los nodos con valores de bootstrap mayores a 70 se colorean en verde oscuro, indicando un soporte estadístico fuerte, mientras que los nodos con valores de bootstrap menores o iguales a 70 se colorean en rojo, indicando un soporte estadístico débil. Es importante interpretar los valores de bootstrap con cautela, ya que un valor de bootstrap alto no garantiza que la relación evolutiva representada por ese nodo sea correcta, pero sí sugiere que esa relación es más confiable que un nodo con un valor de bootstrap bajo.</p>
+</section>
+<section id="ejercicio-2" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Ejercicio 2:</h1>
+<p><strong>Recuerda que estos datos deben ser generados a partir de los que descargaste anteriormente.</strong> 1. Construye un árbol filogenético utilizando el método de UPGMA y otro utilizando el método de Neighbor-Joining. 2. Compara los árboles filogenéticos generados con los diferentes métodos y discute las diferencias y similitudes entre ellos. 3. Genera un árbol filogenético con soporte estadístico utilizando el método de bootstrap y discute la confiabilidad de las relaciones evolutivas entre las secuencias basándote en los valores de bootstrap obtenidos. 4. Guarda los árboles filogenéticos generados en formato Newick para su posterior análisis. Para esto, puedes usar la función <code>write.tree</code> del paquete <code>ape</code> para guardar los árboles filogenéticos en formato Newick. Aquí te dejo un ejemplo de cómo hacerlo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardamos el árbol filogenético generado con el método de UPGMA en formato New</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.tree</span>(tree_upgma, <span class="at">file =</span> <span class="st">"../Results/arbol_upgma.newick"</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardamos el árbol filogenético generado con el método de Neighbor-Joining en formato Newick</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.tree</span>(tree_nj, <span class="at">file =</span> <span class="st">"../Results/arbol_nj.newick"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="referencias" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Referencias</h1>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Elias2007" class="csl-entry" role="listitem">
+Elias, Isaac, and Jens Lagergren. 2007. <span>“Fast Computation of Distance Estimators.”</span> <em>BMC Bioinformatics</em> 8: 89. <a href="https://doi.org/10.1186/1471-2105-8-89">https://doi.org/10.1186/1471-2105-8-89</a>.
+</div>
 <div id="ref-Sayers2022" class="csl-entry" role="listitem">
 Sayers, Eric W, Mark Cavanaugh, Karen Clark, Kim D Pruitt, Conrad L Schoch, Stephen T Sherry, and Ilene Karsch-Mizrachi. 2022. <span>“GenBank.”</span> <em>Nucleic Acids Research</em> 50 (January): D161–64. <a href="https://doi.org/10.1093/nar/gkab1135">https://doi.org/10.1093/nar/gkab1135</a>.
 </div>
