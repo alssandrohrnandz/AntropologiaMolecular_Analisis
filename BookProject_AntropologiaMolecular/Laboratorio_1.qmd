@@ -62,10 +62,6 @@ suppressPackageStartupMessages(library(ape))
 suppressPackageStartupMessages(library(msa))
 suppressPackageStartupMessages(library(Biostrings))
 suppressPackageStartupMessages(library(phangorn))
-# Cargamos los paquetes necesarios para la sesión
-library(ape)
-library(msa)
-library(Biostrings)
 
 # Descargamos las secuencias utilizando sus números de acceso
 secuencias_crudas <- read.GenBank(c("U37731.1", "U37730.1", "U37733.1", "U37737.1", "U37752.1",
