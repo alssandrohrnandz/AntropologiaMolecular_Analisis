@@ -379,29 +379,24 @@ Base composition:
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'phangorn' was built under R version 4.5.2</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos los paquetes necesarios para la sesión</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(msa)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Biostrings)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Descargamos las secuencias utilizando sus números de acceso</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>secuencias_crudas <span class="ot">&lt;-</span> <span class="fu">read.GenBank</span>(<span class="fu">c</span>(<span class="st">"U37731.1"</span>, <span class="st">"U37730.1"</span>, <span class="st">"U37733.1"</span>, <span class="st">"U37737.1"</span>, <span class="st">"U37752.1"</span>,</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"U37751.1"</span>, <span class="st">"U37739.1"</span>, <span class="st">"U37743.1"</span>))</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Este paso es escencial para convertir las secuencias al formato que el paquete msa requiere. El paquete ape devuelve las secuencias en un formato "DNAbin", por lo que es necesario transformarlas a un formato compatible con el paquete msa, como "DNAStringSet". Para esto, podemos usar la función as.character para transformar las secuencias en un formato compatible con el paquete msa.</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>secuencias_letras <span class="ot">&lt;-</span> <span class="fu">as.character</span>(secuencias_crudas) <span class="co"># Transformamos las secuencias en un formato compatible con el paquete msa</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Esto convierte c("A", "T", "G") en "ATG" para cada individuo</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>secuencias_texto <span class="ot">&lt;-</span> <span class="fu">sapply</span>(secuencias_letras, paste, <span class="at">collapse =</span> <span class="st">""</span>)</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertimos el texto limpio al formato que msa exige</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>secuencias_biostrings <span class="ot">&lt;-</span> <span class="fu">DNAStringSet</span>(secuencias_texto)</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Alineamos las secuencias utilizando la función msa</span></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>alineamiento <span class="ot">&lt;-</span> <span class="fu">msa</span>(secuencias_biostrings, <span class="at">method =</span> <span class="st">"Muscle"</span>)</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizamos el alineamiento</span></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(alineamiento)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Descargamos las secuencias utilizando sus números de acceso</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>secuencias_crudas <span class="ot">&lt;-</span> <span class="fu">read.GenBank</span>(<span class="fu">c</span>(<span class="st">"U37731.1"</span>, <span class="st">"U37730.1"</span>, <span class="st">"U37733.1"</span>, <span class="st">"U37737.1"</span>, <span class="st">"U37752.1"</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"U37751.1"</span>, <span class="st">"U37739.1"</span>, <span class="st">"U37743.1"</span>))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Este paso es escencial para convertir las secuencias al formato que el paquete msa requiere. El paquete ape devuelve las secuencias en un formato "DNAbin", por lo que es necesario transformarlas a un formato compatible con el paquete msa, como "DNAStringSet". Para esto, podemos usar la función as.character para transformar las secuencias en un formato compatible con el paquete msa.</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>secuencias_letras <span class="ot">&lt;-</span> <span class="fu">as.character</span>(secuencias_crudas) <span class="co"># Transformamos las secuencias en un formato compatible con el paquete msa</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Esto convierte c("A", "T", "G") en "ATG" para cada individuo</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>secuencias_texto <span class="ot">&lt;-</span> <span class="fu">sapply</span>(secuencias_letras, paste, <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertimos el texto limpio al formato que msa exige</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>secuencias_biostrings <span class="ot">&lt;-</span> <span class="fu">DNAStringSet</span>(secuencias_texto)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Alineamos las secuencias utilizando la función msa</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>alineamiento <span class="ot">&lt;-</span> <span class="fu">msa</span>(secuencias_biostrings, <span class="at">method =</span> <span class="st">"Muscle"</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizamos el alineamiento</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(alineamiento)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>MUSCLE 3.8.31   
 
