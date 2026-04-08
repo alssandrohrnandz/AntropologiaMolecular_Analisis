@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; ¿Qué pasa si solo tengo frecuencias de haplogrupos? – Página de Análisis de Datos Genéticos de Antropología Molecular</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./summary.html" rel="next">
+<link href="./Laboratorio_1.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Laboratorio_2.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">¿Qué pasa si solo tengo frecuencias de haplogrupos?</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Página de Análisis de Datos Genéticos de Antropología Molecular</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bienvenida</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R para principiantes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Laboratorio_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Trabajos en el Laboratorio I</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Laboratorio_2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">¿Qué pasa si solo tengo frecuencias de haplogrupos?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#evidencia-de-uso-de-frecuencias-de-haplogrupos-como-proxy-de-distancia-genética" id="toc-evidencia-de-uso-de-frecuencias-de-haplogrupos-como-proxy-de-distancia-genética" class="nav-link active" data-scroll-target="#evidencia-de-uso-de-frecuencias-de-haplogrupos-como-proxy-de-distancia-genética"><span class="header-section-number">5</span> Evidencia de uso de frecuencias de haplogrupos como proxy de distancia genética</a></li>
+  <li><a href="#recomendaciones-del-tratamiento-de-tus-datos" id="toc-recomendaciones-del-tratamiento-de-tus-datos" class="nav-link" data-scroll-target="#recomendaciones-del-tratamiento-de-tus-datos"><span class="header-section-number">6</span> Recomendaciones del tratamiento de tus datos</a></li>
+  <li><a href="#análisis-de-las-frecuencias-de-haplogrupos-mitocondriales" id="toc-análisis-de-las-frecuencias-de-haplogrupos-mitocondriales" class="nav-link" data-scroll-target="#análisis-de-las-frecuencias-de-haplogrupos-mitocondriales"><span class="header-section-number">7</span> Análisis de las frecuencias de haplogrupos mitocondriales</a>
+  <ul class="collapse">
+  <li><a href="#test-exacto-de-fisher-para-evaluar-la-asociación-entre-frecuencias-de-haplogrupos-y-factores-como-la-lengua-la-cultura-o-la-geografía" id="toc-test-exacto-de-fisher-para-evaluar-la-asociación-entre-frecuencias-de-haplogrupos-y-factores-como-la-lengua-la-cultura-o-la-geografía" class="nav-link" data-scroll-target="#test-exacto-de-fisher-para-evaluar-la-asociación-entre-frecuencias-de-haplogrupos-y-factores-como-la-lengua-la-cultura-o-la-geografía"><span class="header-section-number">7.1</span> Test exacto de Fisher para evaluar la asociación entre frecuencias de haplogrupos y factores como la lengua, la cultura o la geografía</a></li>
+  <li><a href="#análisis-de-distancias-genéticas-a-partir-de-frecuencias-de-haplogrupos-mitocondriales" id="toc-análisis-de-distancias-genéticas-a-partir-de-frecuencias-de-haplogrupos-mitocondriales" class="nav-link" data-scroll-target="#análisis-de-distancias-genéticas-a-partir-de-frecuencias-de-haplogrupos-mitocondriales"><span class="header-section-number">7.2</span> Análisis de distancias genéticas a partir de frecuencias de haplogrupos mitocondriales</a></li>
+  <li><a href="#árbol-de-distancias-genéticas-a-partir-de-la-matriz-de-distancias" id="toc-árbol-de-distancias-genéticas-a-partir-de-la-matriz-de-distancias" class="nav-link" data-scroll-target="#árbol-de-distancias-genéticas-a-partir-de-la-matriz-de-distancias"><span class="header-section-number">7.3</span> Árbol de distancias genéticas a partir de la matriz de distancias</a></li>
+  <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca"><span class="header-section-number">7.4</span> PCA</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">¿Qué pasa si solo tengo frecuencias de haplogrupos?</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Las frecuencias de los haplogrupos pueden ser útiles para algunos análisis. En genética de poblaciones, llevan usándose desde la década de los 1920, cuando los primeros estudios sobre genética aplicado a ganado bovino resultó ser útil para la industria de la carne. Sin embargo, cuentan con ciertas limitantes.</p>
+<p>En Antropología Molecular, se ha asociado la proporción de los haplogrupos con la proporción de ancestría de una población. Por ejemplo, <span class="citation" data-cites="lorenz1996">Lorenz and Smith (<a href="#ref-lorenz1996" role="doc-biblioref">1996</a>)</span> y <span class="citation" data-cites="smith1999">Smith et al. (<a href="#ref-smith1999" role="doc-biblioref">1999</a>)</span> demostraron estadísticamente la relación que existe entre la proporción de haplogrupos con la asociación lingüística, cultural y geográfica de las poblaciones estudiadas.</p>
+<p>Sin embargo, esta asociación no es tan simple como parece. En primer lugar, la proporción de haplogrupos no siempre refleja la proporción de ancestría de una población. Esto se debe a que los haplogrupos pueden ser compartidos entre diferentes poblaciones debido a la migración, el mestizaje o la deriva genética. Por ejemplo, un haplogrupo común en una población puede ser raro en otra población debido a la migración o al mestizaje. Además, la proporción de haplogrupos puede ser influenciada por factores como la selección natural, la deriva genética o la mutación, lo que puede distorsionar la relación entre la proporción de haplogrupos y la proporción de ancestría.</p>
+<section id="evidencia-de-uso-de-frecuencias-de-haplogrupos-como-proxy-de-distancia-genética" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Evidencia de uso de frecuencias de haplogrupos como proxy de distancia genética</h1>
+<p>Existen tres puntos a favor del uso de las frecuencias mitocondriales como marcador de distancia genética: 1. <strong>Tasa de mutación alta</strong>: El mtDNA tiene una tasa de mutación mucho más alta que el DNA nuclear (de 10 a 100 veces más alta, <span class="citation" data-cites="brown1979">Brown, George Jr, and Wilson (<a href="#ref-brown1979" role="doc-biblioref">1979</a>)</span>), lo que permite detectar diferencias genéticas entre poblaciones en un período de tiempo relativamente corto. 2. <strong>Herencia materna</strong>: El mtDNA se hereda exclusivamente por vía materna, lo que significa que no se mezcla con el DNA de otros individuos a través de la reproducción sexual. Esto permite rastrear linajes maternos y estudiar la historia evolutiva de las poblaciones <span class="citation" data-cites="Wallace2007">(<a href="#ref-Wallace2007" role="doc-biblioref">Wallace 2007</a>)</span>. 3. <strong>Sensibilidad a eventos demográficos</strong>: Las frecuencias de haplogrupos pueden ser sensibles a eventos demográficos como migraciones, cuellos de botella y expansiones poblacionales, lo que puede proporcionar información sobre la historia evolutiva de las poblaciones <span class="citation" data-cites="cavalli1994">(<a href="#ref-cavalli1994" role="doc-biblioref">Cavalli-Sforza, Menozzi, and Piazza 1994</a>)</span>.</p>
+<p>Si bien existen estas ventajas son importantes, también es cierto que el uso de las frecuencias de los haplogrupos presenta limitaciones significativas. Por otra parte, el estudio del mtDNA en poblaciones humanas nunca antes estudiadas ha demostrado ser útil para entender la historia de las poblaciones indígenas mexicanas. Por ejemplo, <span class="citation" data-cites="Andres2014">Andrés et al. (<a href="#ref-Andres2014" role="doc-biblioref">2014</a>)</span> encontró que las poblaciones indígenas mexicanas tienen una alta diversidad de haplogrupos mitocondriales, lo que sugiere una historia evolutiva compleja y una gran diversidad genética. Además, <span class="citation" data-cites="Gonzalez-Oliver2017a">Gonzalez-Oliver et al. (<a href="#ref-Gonzalez-Oliver2017a" role="doc-biblioref">2017</a>)</span> encontró que las poblaciones indígenas mexicanas tienen una alta proporción de haplogrupos mitocondriales específicos de América, lo que sugiere una historia evolutiva única para estas poblaciones.</p>
+<p>En esta sección, analizaremos los resultados obtenidos a partir de las frecuencias de los haplogrupos mitocondriales de las poblaciones indígenas mexicanas. Para ello, se utilizaron los datos obtenidos por <span class="citation" data-cites="lopez-hernandez2019">Lópe-Hernandez (<a href="#ref-lopez-hernandez2019" role="doc-biblioref">2019</a>)</span>, quien analizó los haplogrupos mitocondriales de la población teenek que habita la Huasteca Potosina, México.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/Mapa_teenek.png" class="img-fluid figure-img"></p>
+<figcaption>La región de la Huasteca se encuentra en el norte de México funcionando como un límite cultural y natural entre mesoamérica y aridoamérica. Imagen obtenida de <span class="citation" data-cites="faust2015">Faust (<a href="#ref-faust2015" role="doc-biblioref">2015</a>)</span></figcaption>
+</figure>
+</div>
+</section>
+<section id="recomendaciones-del-tratamiento-de-tus-datos" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Recomendaciones del tratamiento de tus datos</h1>
+<p>Independientemente de si estos son datos de haplogrupos mitocondriales o haplotipos de la región control, es importante tener en cuenta las siguientes recomendaciones para el tratamiento de tus datos: 1. <strong>Tipo de datos</strong>: Tu tabla de datos (<em>data frame</em> en R) debe contener una columna con los nombres de las poblaciones (<em>pop</em> en el data frame que se usará en el ejemplo), una serie de columnas nombradas con los haplogrupos o haplotipos a usar (<em>A</em>, <em>B</em>, <em>C</em>, etc.). Estas columnas tendrán <strong>la frecuencia de cada haplogrupo o haplotipo en cada población</strong>. Es importante que las frecuencias estén expresadas como proporciones (es decir, entre 0 y 1) y no como porcentajes (entre 0 y 100). 2. <strong>Número de poblaciones</strong>: Para obtener resultados confiables, es recomendable tener al menos 5 poblaciones en tu análisis. Esto se debe a que con un número muy bajo de poblaciones, las estimaciones de distancia genética pueden ser inestables y no representativas de la diversidad genética real. 3. <strong>Columnas con datos lingüísticos, culturales o geográficos</strong>: Si deseas analizar la relación entre las frecuencias de haplogrupos y factores como la lengua, la cultura o la geografía, es importante incluir columnas adicionales en tu data frame que contengan esta información. Por ejemplo, podrías tener una columna llamada <em>lengua</em> que indique el grupo lingüístico al que pertenece cada población, una columna llamada <em>cultura</em> que indique el grupo cultural al que pertenece cada población, y una columna llamada <em>geografia</em> que indique la región geográfica donde se encuentra cada población. Esto te permitirá realizar análisis estadísticos para evaluar la asociación entre las frecuencias de haplogrupos y estos factores. 4. <strong>Formato de los datos</strong>: Asegúrate de que tus datos estén en un formato adecuado para la lectura en R. En este ejemplo, usaremos un archivo CSV. Si bien es posible usar otros formatos, como Excel o archivos de texto, el formato CSV es ampliamente compatible y fácil de manejar en R.</p>
+</section>
+<section id="análisis-de-las-frecuencias-de-haplogrupos-mitocondriales" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Análisis de las frecuencias de haplogrupos mitocondriales</h1>
+<section id="test-exacto-de-fisher-para-evaluar-la-asociación-entre-frecuencias-de-haplogrupos-y-factores-como-la-lengua-la-cultura-o-la-geografía" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="test-exacto-de-fisher-para-evaluar-la-asociación-entre-frecuencias-de-haplogrupos-y-factores-como-la-lengua-la-cultura-o-la-geografía"><span class="header-section-number">7.1</span> Test exacto de Fisher para evaluar la asociación entre frecuencias de haplogrupos y factores como la lengua, la cultura o la geografía</h2>
+<p>Como primer paso, cargaremos los datos de las frecuencias de los haplogrupos mitocondriales en el análisis genético de la población teenek. Para ello, usaremos la función <code>read.csv()</code> de R para leer el archivo CSV que contiene los datos. Asegúrate de que el archivo esté en el mismo directorio que tu script de R o proporciona la ruta completa al archivo.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar los datos de frecuencias de haplogrupos mitocondriales</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>datos_abs <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/pop_abs.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar las primeras filas del data frame para verificar que se cargó correctamente</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos_abs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        pop  A B C D Otros fam_ling        epoca       estado
+1    p-MBon  5 0 0 0     0     Maya Prehispanica      Chiapas
+2    p-MPal  5 0 3 1     0     Maya Prehispanica      Chiapas
+3    P-MTab  8 0 7 2     0     Maya Prehispanica      Tabasco
+4    p-MRey  3 0 2 0     0     Maya Prehispanica Quintana_Roo
+5 p-MXcaret 22 1 2 0     1     Maya Prehispanica Quintana_Roo
+6   p-MXcam  2 0 0 0     0     Maya Prehispanica      Yucatan</code></pre>
+</div>
+</div>
+<p>Como observarás, el data frame contiene una columna llamada <em>pop</em> con los nombres de las poblaciones y varias columnas con los nombres de los haplogrupos (por ejemplo, <em>A</em>, <em>B</em>, <em>C</em>, etc.) que contienen <strong>el numero de individuos</strong> de cada haplogrupo en cada población. Esto es necesario para el análisis que realizaremos a continuación, pero es importante recordar que para otros análisis, como el cálculo de distancias genéticas, es necesario convertir estos números en frecuencias (proporciones) dividiendo cada conteo por el total de individuos en cada población.</p>
+<p>Ahora, haremos un análisis llamado “Test exacto de Fisher”, para evaluar si existe una asociación significativa entre el número de individuos de cada haplogrupo y la lengua, la cultura o la geografía. Es una primera exploración para evaluar si hay alguna relación entre las poblaciones. Para ello, usaremos la función <code>fisher.test()</code> de R. Esta función realiza el test exacto de Fisher para tablas de contingencia, lo que nos permitirá evaluar la asociación entre las frecuencias de los haplogrupos y los factores mencionados:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Agrupar y sumar los conteos absolutos de individuos por familia lingüística</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Reemplaza A, B, C, D con los nombres de las columnas de tus haplogrupos</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>tabla_agrupada <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(<span class="fu">cbind</span>(A, B, C, D, Otros) <span class="sc">~</span> fam_ling, <span class="at">data =</span> datos_abs, <span class="at">FUN =</span> sum)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. El test de Fisher pide una matriz numérica pura, así que quitamos </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># la primera columna (el texto de las lenguas) y la pasamos a nombres de fila (rownames)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>matriz_contingencia <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(tabla_agrupada[, <span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(matriz_contingencia) <span class="ot">&lt;-</span> tabla_agrupada<span class="sc">$</span>fam_ling</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Verificamos que la tabla tenga sentido biológico antes del test</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(matriz_contingencia)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              A   B   C  D Otros
+Desconocido  23   6   5  2     0
+Maya        708 140 135 52     5
+Otomangue    25  13   7  6     0
+Yuto-azteca 577 218  82 53     8</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Correr el test exacto de Fisher</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># OJO: simulate.p.value = TRUE es VITAL en genética de poblaciones porque </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># las tablas mayores a 2x2 hacen que la memoria de R colapse al calcular factoriales exactos.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>resultado_lengua <span class="ot">&lt;-</span> <span class="fu">fisher.test</span>(matriz_contingencia, <span class="at">simulate.p.value =</span> <span class="cn">TRUE</span>, <span class="at">B =</span> <span class="dv">10000</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resultado_lengua)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Fisher's Exact Test for Count Data with simulated p-value (based on
+    10000 replicates)
+
+data:  matriz_contingencia
+p-value = 9.999e-05
+alternative hypothesis: two.sided</code></pre>
+</div>
+</div>
+<p>El resultado del test de Fisher nos dará un valor <em>p</em> que nos indicará si existe una asociación significativa entre las frecuencias de los haplogrupos y la familia lingüística. Si el valor <em>p</em> es menor que un umbral comúnmente utilizado (por ejemplo, 0.05), podemos concluir que hay una asociación significativa entre las frecuencias de los haplogrupos y la familia lingüística. De lo contrario, no podemos rechazar la hipótesis nula de que no hay asociación. En este caso, obtuvimos un valor <em>p</em> de 9.999e-05 ( o 0.00009), lo que indica que hay una asociación significativa entre las frecuencias de los haplogrupos y la familia lingüística en las poblaciones estudiadas. Puedes repetir este proceso para evaluar la asociación entre las frecuencias de los haplogrupos y otros factores como la cultura o la geografía, simplemente cambiando la variable de agrupación en el paso 1 (por ejemplo, usando <em>cultura</em> o <em>geografia</em> en lugar de <em>fam_ling</em>).</p>
+<p><em>NOTA</em>: Es importante tener en cuenta que el test de Fisher es sensible a la distribución de los datos y puede no ser adecuado para tablas con frecuencias muy bajas. En casos donde las frecuencias son muy bajas, es posible que sea necesario usar otros métodos estadísticos o agrupar los datos de manera diferente para obtener resultados más confiables.</p>
+<p><em>NOTA 2</em>: Este test es ligeramente diferente al hecho con AMOVA, que se basa en la varianza genética entre y dentro de las poblaciones. El test de Fisher se basa en la asociación entre frecuencias de haplogrupos y factores como la lengua, la cultura o la geografía, mientras que AMOVA evalúa la estructura genética de las poblaciones en función de la varianza genética. Ambos enfoques pueden ser complementarios para entender la historia evolutiva de las poblaciones, pero es importante elegir el método adecuado según el tipo de datos y las preguntas de investigación que se quieran responder.</p>
+</section>
+<section id="análisis-de-distancias-genéticas-a-partir-de-frecuencias-de-haplogrupos-mitocondriales" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="análisis-de-distancias-genéticas-a-partir-de-frecuencias-de-haplogrupos-mitocondriales"><span class="header-section-number">7.2</span> Análisis de distancias genéticas a partir de frecuencias de haplogrupos mitocondriales</h2>
+<p>Lo siguiente es hacer una matriz de distancias genéticas a partir de las frecuencias de los haplogrupos mitocondriales. Para ello, usaremos la función <code>dist()</code> de R para calcular las distancias genéticas entre las poblaciones. Antes de calcular las distancias, es importante convertir los conteos absolutos de individuos en frecuencias (proporciones) dividiendo cada conteo por el total de individuos en cada población (esto ya lo hice previamente y lo separé en un archivo llamado <code>pop_freq.csv</code>). Luego, podemos usar la función <code>dist()</code> para calcular las distancias genéticas entre las poblaciones basándonos en estas frecuencias.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar los datos de frecuencias de haplogrupos mitocondriales</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>datos_freq <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/pop_freq.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar solo las columnas de frecuencias numéricas</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>frecuencias <span class="ot">&lt;-</span> datos_freq[, <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar los nombres ANTES de calcular</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(frecuencias) <span class="ot">&lt;-</span> datos_freq<span class="sc">$</span>pop</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la matriz de distancias genéticas</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 'dist' heredará automáticamente los nombres que acabamos de asignar</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>distancias <span class="ot">&lt;-</span> <span class="fu">dist</span>(frecuencias, <span class="at">method =</span> <span class="st">"euclidean"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar la matriz de distancias genéticas</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(distancias)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5565432 0.6717882 0.5659117 0.1845151 0.2100000 1.3385527</code></pre>
+</div>
+</div>
+<p>Como primer acercamiento, guardaremos el resultado en un objeto llamado <code>distancias</code>, que es un objeto de clase “dist” en R. Este objeto contiene las distancias genéticas entre cada par de poblaciones basadas en las frecuencias de los haplogrupos mitocondriales. Lo siguiente es obtener la significancia estadística de los valores obtenidos en el análisis anterior. Para ello, volveremos a usar nuestra tabla de conteos absolutos <code>datos_abs</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos una matriz varía para guardar los resultados</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>matriz_conteos <span class="ot">&lt;-</span> datos_abs[, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(matriz_conteos) <span class="ot">&lt;-</span> matriz_conteos[, <span class="dv">1</span>]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>matriz_conteos <span class="ot">&lt;-</span> matriz_conteos[, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>num_pobs <span class="ot">&lt;-</span> <span class="fu">nrow</span>(matriz_conteos)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>mis_p_valores <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>, <span class="at">nrow =</span> num_pobs, <span class="at">ncol =</span> num_pobs)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ponerle los nombres de las poblaciones</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mis_p_valores) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(matriz_conteos)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mis_p_valores) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(matriz_conteos)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Hacer un loop para comparar cada población con las demás</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># El Bucle Optimizado (Calcula la mitad y hace un espejo)</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_pobs) {</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># OJO AQUÍ: 'j' empieza en 'i', no en 1. </span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Esto hace que R solo recorra el triángulo superior.</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> i<span class="sc">:</span>num_pobs) { </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="sc">==</span> j) {</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      mis_p_valores[i, j] <span class="ot">&lt;-</span> <span class="fl">1.0000</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>      tabla_par <span class="ot">&lt;-</span> matriz_conteos[<span class="fu">c</span>(i, j), ]</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>      columnas_con_datos <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">colSums</span>(tabla_par) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (columnas_con_datos <span class="sc">&lt;</span> <span class="dv">2</span>) {</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        p_val_calculado <span class="ot">&lt;-</span> <span class="fl">1.0000</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        test_par <span class="ot">&lt;-</span> <span class="fu">fisher.test</span>(tabla_par, <span class="at">simulate.p.value =</span> <span class="cn">TRUE</span>, <span class="at">B =</span> <span class="dv">2000</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        p_val_calculado <span class="ot">&lt;-</span> test_par<span class="sc">$</span>p.value</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>      <span class="co"># AQUÍ ESTÁ LA MAGIA: Guardamos el mismo p-valor en la </span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>      <span class="co"># coordenada [i,j] (arriba) y en la [j,i] (abajo).</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>      mis_p_valores[i, j] <span class="ot">&lt;-</span> p_val_calculado</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>      mis_p_valores[j, i] <span class="ot">&lt;-</span> p_val_calculado</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Una vez obtenida la matriz de p-valores, podemos usarla para evaluar la significancia de las distancias genéticas entre las poblaciones. Por ejemplo, podríamos establecer un umbral de significancia (por ejemplo, 0.05) y marcar en la matriz de distancias cuáles pares de poblaciones tienen una distancia genética significativa según el test de Fisher. Esto nos permitirá identificar qué poblaciones están genéticamente más cercanas o más lejanas entre sí basándonos en las frecuencias de los haplogrupos mitocondriales.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una matriz para marcar las distancias significativas</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mat_dist <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(distancias)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos los valores p calculados previamente para marcar las distancias significativas</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>p_valores <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(mis_p_valores)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos los mismos nombres de filas y columnas para la matriz de p-valores</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(p_valores) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mat_dist)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(p_valores) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(mat_dist)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos una función similar a la de Arlequin</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>generar_arlequin <span class="ot">&lt;-</span> <span class="cf">function</span>(distancias, p_val) {</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(distancias)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crear matriz vacía de texto</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="st">""</span>, <span class="at">nrow =</span> n, <span class="at">ncol =</span> n)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames</span>(res) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(distancias)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(res) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(distancias)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(i <span class="sc">&gt;</span> j) {</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Triángulo inferior: Mostrar la distancia (4 decimales como Arlequin)</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        res[i, j] <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.4f"</span>, distancias[i, j])</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> <span class="cf">if</span>(i <span class="sc">&lt;</span> j) {</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Triángulo superior: Mostrar los símbolos basados en el p-valor</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        p <span class="ot">&lt;-</span> p_val[i, j]</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(p <span class="sc">&lt;</span> <span class="fl">0.01</span>) {</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>          res[i, j] <span class="ot">&lt;-</span> <span class="st">"*"</span>   <span class="co"># Altamente significativo</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> <span class="cf">if</span>(p <span class="sc">&lt;=</span> <span class="fl">0.05</span>) {</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>          res[i, j] <span class="ot">&lt;-</span> <span class="st">"+"</span>   <span class="co"># Significativo</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>          res[i, j] <span class="ot">&lt;-</span> <span class="st">"-"</span>   <span class="co"># No significativo</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Diagonal</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>        res[i, j] <span class="ot">&lt;-</span> <span class="st">"0.0000"</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Devolver como data.frame para que se imprima bonito en la consola</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">as.data.frame</span>(res))</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizamos parcialmente</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>matriz_arlequin <span class="ot">&lt;-</span> <span class="fu">generar_arlequin</span>(mat_dist, p_valores)</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(matriz_arlequin)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          p-MBon p-MPal P-MTab p-MRey p-MXcaret p-MXcam p-MCop c-MXca Chol Chor
+p-MBon    0.0000      -      -      -         -       -      *      -    -    -
+p-MPal    0.5565 0.0000      -      -         -       -      +      -    -    -
+P-MTab    0.6718 0.1158 0.0000      -         *       -      +      -    -    +
+p-MRey    0.5659 0.0819 0.1319 0.0000         -       -      +      -    -    -
+p-MXcaret 0.1845 0.3914 0.5061 0.4104    0.0000       -      *      -    -    -
+p-MXcam   0.2100 0.6064 0.7152 0.6092    0.3073  0.0000      +      -    -    -
+          Itza Laca MCam MQui1 MQui2 MQui3 MYuc1 MYuc2 MYuc3 Poqo Tenek Tojo
+p-MBon       -    -    -     -     -     -     -     -     -    -     -    *
+p-MPal       +    *    -     -     -     -     +     -     -    +     +    *
+P-MTab       *    *    +     +     +     +     *     -     +    *     *    *
+p-MRey       +    +    -     -     -     -     -     -     -    -     -    *
+p-MXcaret    -    +    -     -     -     -     -     -     -    -     +    *
+p-MXcam      -    -    -     -     -     -     -     -     -    -     -    -
+          Tzel Tzol p-Cho p-Teo p-OtXal c-Mix p-Azt p-NXal p-Tet NCDMX1 NCDMX2
+p-MBon       -    -     -     -       +     -     -      -     -      -      -
+p-MPal       -    -     -     -       -     -     -      -     -      +      +
+P-MTab       -    -     -     -       *     +     *      +     -      *      *
+p-MRey       -    -     -     -       -     -     -      -     -      -      -
+p-MXcaret    -    *     -     +       *     +     +      -     -      -      *
+p-MXcam      -    -     -     -       -     -     -      -     -      -      -
+          NGro1 NGro2 NHgo1 NHgo2 NPue1 NPue2 NSLP NVer1 NVer2 NVer3 NVer4
+p-MBon        -     -     -     -     -     -    -     -     -     -     -
+p-MPal        *     +     +     +     -     -    -     *     *     *     +
+P-MTab        *     *     *     *     +     +    +     *     *     *     *
+p-MRey        +     -     -     -     -     -    -     +     +     +     +
+p-MXcaret     +     *     -     *     -     -    +     -     *     *     +
+p-MXcam       -     -     -     -     -     -    -     -     -     -     -</code></pre>
+</div>
+</div>
+<p>Y de la misma forma, podemos generar un plot que muestre tanto las distancias genéticas como la significancia de estas. Para ello, usaremos la función <code>ggplot2</code> de R para crear un gráfico de dispersión que muestre las distancias genéticas entre las poblaciones, con colores o símbolos que indiquen la significancia de estas distancias según el test de Fisher.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparar los datos: Convertimos las matrices a un formato "largo" (tabla)</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>df_dist <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">as.table</span>(mat_dist))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Limitamos el número de decimales a 4 para que se vea como Arlequin</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>df_dist<span class="sc">$</span>Freq <span class="ot">&lt;-</span> <span class="fu">round</span>(df_dist<span class="sc">$</span>Freq, <span class="dv">4</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignamos nombres a las columnas para mayor claridad</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_dist) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Poblacion_A"</span>, <span class="st">"Poblacion_B"</span>, <span class="st">"Distancia"</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>df_p <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">as.table</span>(p_valores))</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>df_dist<span class="sc">$</span>P_valor <span class="ot">&lt;-</span> df_p<span class="sc">$</span>Freq</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar solo el triángulo inferior de la matriz</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># (Para que el gráfico se vea como la clásica escalera de distancias)</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>indices_inferiores <span class="ot">&lt;-</span> <span class="fu">lower.tri</span>(mat_dist)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>df_plot <span class="ot">&lt;-</span> df_dist[<span class="fu">as.vector</span>(indices_inferiores), ]</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear las categorías de colores basadas en los P-valores</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>df_plot<span class="sc">$</span>Significancia <span class="ot">&lt;-</span> <span class="fu">cut</span>(df_plot<span class="sc">$</span>P_valor, </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>                             <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="fl">0.01</span>, <span class="fl">0.05</span>, <span class="cn">Inf</span>), </span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Altamente Significativo (p &lt;= 0.01)"</span>, </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"Significativo (p &lt;= 0.05)"</span>, </span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"No Significativo (p &gt; 0.05)"</span>))</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Asegurar el orden correcto de las poblaciones en los ejes</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>df_plot<span class="sc">$</span>Poblacion_A <span class="ot">&lt;-</span> <span class="fu">factor</span>(df_plot<span class="sc">$</span>Poblacion_A, <span class="at">levels =</span> <span class="fu">rownames</span>(mat_dist))</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>df_plot<span class="sc">$</span>Poblacion_B <span class="ot">&lt;-</span> <span class="fu">factor</span>(df_plot<span class="sc">$</span>Poblacion_B, <span class="at">levels =</span> <span class="fu">colnames</span>(mat_dist))</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una columna nueva solo con símbolos (estilo Arlequin limpio)</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>df_plot<span class="sc">$</span>Simbolo <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df_plot<span class="sc">$</span>P_valor <span class="sc">&lt;=</span> <span class="fl">0.01</span>, <span class="st">"**"</span>, </span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">ifelse</span>(df_plot<span class="sc">$</span>P_valor <span class="sc">&lt;=</span> <span class="fl">0.05</span>, <span class="st">"*"</span>, <span class="st">""</span>))</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>grafico_distancias <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_plot, <span class="fu">aes</span>(<span class="at">x =</span> Poblacion_B, <span class="at">y =</span> Poblacion_A, <span class="at">fill =</span> Significancia)) <span class="sc">+</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Usamos el símbolo en lugar del número largo. Se verá súper limpio.</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Simbolo), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Altamente Significativo (p &lt;= 0.01)"</span> <span class="ot">=</span> <span class="st">"#e34a33"</span>,</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Significativo (p &lt;= 0.05)"</span> <span class="ot">=</span> <span class="st">"#d7ee07"</span>,</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"No Significativo (p &gt; 0.05)"</span> <span class="ot">=</span> <span class="st">"#ffffff"</span>)) <span class="sc">+</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">8</span>), <span class="co"># Letra más pequeña</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distancias Genéticas entre Poblaciones"</span>,</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"(* p &lt; 0.05, ** p &lt; 0.01)"</span>, <span class="co"># Añadimos la leyenda al título</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Nivel de Significancia:"</span>)</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(grafico_distancias)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Laboratorio_2_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el resultado como una imagen PNG de alta resolución</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"imagenes/mapa_distancias_significancia.png"</span>, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> grafico_distancias, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">7</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Listo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>¡Personaliza los colores a tu gusto! Es posible tambien experimentar un poco con el tamaño de los símbolos, el tipo de letra, o incluso agregar etiquetas con los valores de distancia (aunque esto puede hacer que el gráfico se vea muy cargado si hay muchas poblaciones). La clave es encontrar un equilibrio entre la claridad visual y la cantidad de información que deseas mostrar. Por ejemplo, si tienes muchas poblaciones, puede ser mejor usar solo los símbolos para indicar la significancia y omitir los valores numéricos de las distancias para que el gráfico sea más legible. En cambio, si tienes pocas poblaciones, podrías considerar agregar los valores de distancia dentro de cada celda para proporcionar información adicional.</p>
+</section>
+<section id="árbol-de-distancias-genéticas-a-partir-de-la-matriz-de-distancias" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="árbol-de-distancias-genéticas-a-partir-de-la-matriz-de-distancias"><span class="header-section-number">7.3</span> Árbol de distancias genéticas a partir de la matriz de distancias</h2>
+<p>Es posible generar un árbol de distancias genéticas a partir de la matriz de distancias que hemos calculado. Este proceso ya lo hemos hecho antes, pero ahora lo haremos específicamente con la matriz de distancias basada en las frecuencias de los haplogrupos mitocondriales. Para ello, usaremos el viejo conocido de este tipo de métodos, el paquete <code>ape</code> de R, que nos permite construir árboles filogenéticos a partir de matrices de distancias. En este caso, usaremos el método UPGMA (Unweighted Pair Group Method with Arithmetic Mean) para construir el árbol de distancias genéticas entre las poblaciones basándonos en las frecuencias de los haplogrupos mitocondriales:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos a volver a convertir nuestra matriz a un objeto dist()</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>dist_obj <span class="ot">&lt;-</span> <span class="fu">as.dist</span>(mat_dist)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos un árbol usando el método UPGMA</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>arbol_upgma <span class="ot">&lt;-</span> <span class="fu">as.phylo</span>(<span class="fu">hclust</span>(dist_obj, <span class="at">method =</span> <span class="st">"average"</span>))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficamos. Usamos el tipo "phylogram" clásico</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Se abrirá en una nueva ventana/pestaña de gráficos en RStudio</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Personaliza el gráfico a tu gusto: colores, tamaños, etc.</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardamos el gráfico como una imagen PNG de alta resolución</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="at">filename =</span> <span class="st">"imagenes/arbol_upgma_publicacion.png"</span>, </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">2400</span>, <span class="at">height =</span> <span class="dv">2500</span>, <span class="at">res =</span> <span class="dv">300</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># OPCIÓN DE FONDO Y MÁRGENES:</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># par(bg = "white") # Aquí puedes cambiar el color de fondo ("transparent", "gray95", etc.)</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># par(mar = c(4, 1, 1, 5)) # Ajusta los márgenes: c(Abajo, Izquierda, Arriba, Derecha). </span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Si los nombres de la derecha se cortan, sube el último número (el 5).</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Dibujamos el árbol con opciones personalizadas</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(arbol_upgma, </span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"phylogram"</span>, </span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>     <span class="co"># --- LÍNEAS Y ESTRUCTURA ---</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">edge.width =</span> <span class="fl">1.5</span>,         <span class="co"># Grosor de la línea. 1.5 a 2 es ideal.</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">edge.color =</span> <span class="st">"gray20"</span>,    <span class="co"># Sugerencia: En artículos, el gris oscuro ("gray20") o "black" es más elegante y formal que los colores primarios.</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>     <span class="co"># --- TEXTO DE LAS POBLACIONES ---</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>     <span class="at">tip.color =</span> <span class="st">"black"</span>,      <span class="co"># Color de las etiquetas. </span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex =</span> <span class="fl">0.5</span>,                <span class="co"># ¡OPCIÓN CLAVE PARA EL TAMAÑO! Como tienes muchas poblaciones, bájalo a 0.5 o 0.4 para evitar que se encimen.</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>     <span class="at">font =</span> <span class="dv">3</span>,                 <span class="co"># 1 = Normal, 2 = Negrita, 3 = Cursiva (Estándar científico para linajes/poblaciones), 4 = Negrita Cursiva.</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>     <span class="co"># --- ESPACIADO Y PRESENTACIÓN ---</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">label.offset =</span> <span class="fl">0.001</span>,     <span class="co"># Añade una micro-separación entre la punta de la rama y el texto para que respire.</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>     <span class="at">no.margin =</span> <span class="cn">TRUE</span>,         <span class="co"># Fuerza al árbol a usar todo el espacio de la imagen, borrando márgenes innecesarios.</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>     <span class="co">#main = "Árbol Filogenético: UPGMA" </span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Sugerencia: En los artículos científicos ("papers"), las figuras no llevan título dentro del gráfico. El título va en el pie de figura de Word/LaTeX.</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Modificamos la escala para que haga juego con el nuevo formato</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>limites <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">"usr"</span>)</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a><span class="fu">add.scale.bar</span>(</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> limites[<span class="dv">2</span>] <span class="sc">-</span> <span class="fl">0.1</span>,</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> limites[<span class="dv">3</span>] <span class="sc">+</span> <span class="fl">0.5</span>,</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">length =</span> <span class="fl">0.05</span>, </span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="fl">0.6</span>, </span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="fl">1.5</span>, </span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"black"</span></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardamos y cerramos el dispositivo gráfico</span></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">dev.off</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Ahora generaremos un NJ (Neighbor-Joining) con la misma matriz de distancias para comparar ambos métodos. El proceso es muy similar, solo cambia el método de clustering que usamos para construir el árbol:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos un árbol usando el método Neighbor-Joining</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>arbol_nj <span class="ot">&lt;-</span> <span class="fu">nj</span>(dist_obj)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficamos el árbol NJ con opciones personalizadas</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="at">filename =</span> <span class="st">"imagenes/arbol_nj_publicacion.png"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">2400</span>, <span class="at">height =</span> <span class="dv">2500</span>, <span class="at">res =</span> <span class="dv">300</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># par(bg = "white") # Cambia el fondo si quieres</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># par(mar = c(4, 1, 1, 5)) # Ajusta los márgenes si es necesario</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(arbol_nj, </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"phylogram"</span>, </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">edge.width =</span> <span class="fl">1.5</span>, </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">edge.color =</span> <span class="st">"gray20"</span>, </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">tip.color =</span> <span class="st">"black"</span>, </span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex =</span> <span class="fl">0.5</span>, </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">font =</span> <span class="dv">3</span>, </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">label.offset =</span> <span class="fl">0.001</span>, </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">no.margin =</span> <span class="cn">TRUE</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>     <span class="co">#main = "Árbol Filogenético: Neighbor-Joining"</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Modificamos la escala para que haga juego con el nuevo formato</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>limites <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">"usr"</span>)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="fu">add.scale.bar</span>(</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> limites[<span class="dv">2</span>] <span class="sc">-</span> <span class="fl">0.1</span>,</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> limites[<span class="dv">3</span>] <span class="sc">+</span> <span class="fl">0.5</span>,</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">length =</span> <span class="fl">0.05</span>, </span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="fl">0.6</span>, </span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="fl">1.5</span>, </span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"black"</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">dev.off</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Los resultados de ambos arboles se pueden ver a continuación: <img src="imagenes/arbol_upgma_publicacion.png" class="img-fluid" alt="Árbol UPGMA basado en frecuencias de haplogrupos mitocondriales"> <img src="imagenes/arbol_nj_publicacion.png" class="img-fluid" alt="Árbol Neighbor-Joining basado en frecuencias de haplogrupos mitocondriales"></p>
+</section>
+<section id="pca" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="pca"><span class="header-section-number">7.4</span> PCA</h2>
+<p>El PCA es un análisis multivariado (es decir, que utiliza las varianzas de los datos para reducir en 2 dimensiones la información de los haplogrupos mitocondriales). Para ello usaremos la función <code>prcomp()</code> de R, que nos permite realizar un análisis de componentes principales (PCA) a partir de las frecuencias de los haplogrupos mitocondriales. Este análisis nos permitirá visualizar la relación entre las poblaciones en un espacio bidimensional basado en las frecuencias de los haplogrupos mitocondriales:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OJO: scale. = TRUE es importantísimo para que los haplogrupos raros </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># no sean aplastados por los haplogrupos muy comunes.</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>pca_resultado <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(frecuencias, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale. =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver un resumen rápido de cuánta varianza explica cada componente</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca_resultado)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Importance of components:
+                          PC1    PC2    PC3    PC4     PC5
+Standard deviation     1.3650 1.1526 1.0139 0.8529 0.22924
+Proportion of Variance 0.3727 0.2657 0.2056 0.1455 0.01051
+Cumulative Proportion  0.3727 0.6384 0.8440 0.9895 1.00000</code></pre>
+</div>
+</div>
+<p>El resultado del PCA nos dará un resumen de cuánta varianza explica cada componente principal. Ahora, generaremos el gráfico del PCA para visualizar la relación entre las poblaciones en el espacio de los componentes principales:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># | message: false</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># | warning: false</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggrepel' was built under R version 4.5.3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un data frame para el gráfico del PCA</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>datos_pca <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(pca_resultado<span class="sc">$</span>x[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>datos_pca<span class="sc">$</span>Poblacion <span class="ot">&lt;-</span> <span class="fu">rownames</span>(datos_pca)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregar la Familia Lingüística para el color</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># (Asumiendo que tienes esta columna en tu base de datos original 'datos_freq')</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Sustituye 'fam_ling' por el nombre real de tu columna.</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>datos_pca<span class="sc">$</span>Familia_Ling <span class="ot">&lt;-</span> datos_freq<span class="sc">$</span>fam_ling </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la varianza explicada por cada eje (¡Requisito de publicación!)</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>varianza <span class="ot">&lt;-</span> <span class="fu">summary</span>(pca_resultado)<span class="sc">$</span>importance[<span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>etiqueta_x <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"Componente Principal 1 (%.1f%%)"</span>, varianza[<span class="dv">1</span>])</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>etiqueta_y <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"Componente Principal 2 (%.1f%%)"</span>, varianza[<span class="dv">2</span>])</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Construir el gráfico con ggplot2</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>grafico_pca <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(datos_pca, <span class="fu">aes</span>(<span class="at">x =</span> PC1, <span class="at">y =</span> PC2, <span class="at">color =</span> Familia_Ling, <span class="at">label =</span> Poblacion)) <span class="sc">+</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Añadir líneas de cuadrícula centrales (origen 0,0)</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"gray70"</span>) <span class="sc">+</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"gray70"</span>) <span class="sc">+</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Dibujar los puntos de las poblaciones</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Agregar los nombres sin que se encimen (ggrepel)</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">fontface =</span> <span class="st">"italic"</span>, <span class="at">max.overlaps =</span> <span class="dv">15</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Estética limpia (estilo Nature/PLOS)</span></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">linewidth =</span> <span class="dv">1</span>),</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Etiquetas de los ejes dinámicas</span></span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Análisis de Componentes Principales (PCA)"</span>,</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> etiqueta_x,</span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> etiqueta_y,</span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Familia Lingüística:"</span></span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el gráfico en R</span></span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(grafico_pca)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Laboratorio_2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el gráfico del PCA como una imagen PNG de alta resolución</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"imagenes/pca_haplogrupos.png"</span>, </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> grafico_pca, </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">7</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Este grafico nos muestra que las poblaciones usadas no se agrupan claramente por familia lingüística. Sin embargo, todavía podemos hacer más exploraciones. A continuación, haremos un PCA-Biplot, que es una forma de visualizar tanto las poblaciones como los haplogrupos en el mismo espacio de componentes principales. Esto nos permitirá ver cómo se relacionan los haplogrupos con las poblaciones en el espacio del PCA:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un biplot del PCA</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Usamos la libreria factoextra para un biplot más elegante</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("factoextra")</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el Biplot</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>grafico_biplot <span class="ot">&lt;-</span> <span class="fu">fviz_pca_biplot</span>(pca_resultado, </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>                <span class="co"># --- CONFIGURACIÓN DE LAS POBLACIONES (PUNTOS) ---</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">geom.ind =</span> <span class="fu">c</span>(<span class="st">"point"</span>, <span class="st">"text"</span>), <span class="co"># Mostrar el punto y el nombre de la población</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.ind =</span> datos_freq<span class="sc">$</span>fam_ling, <span class="co"># Colorear puntos por Familia Lingüística</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">pointshape =</span> <span class="dv">19</span>,               <span class="co"># Forma del punto (círculo sólido)</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">pointsize =</span> <span class="fl">2.5</span>,               <span class="co"># Tamaño del punto</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>                <span class="co"># --- CONFIGURACIÓN DE LOS HAPLOGRUPOS (FLECHAS) ---</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.var =</span> <span class="st">"black"</span>,             <span class="co"># Las flechas de los haplogrupos en negro para contrastar</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">arrowsize =</span> <span class="fl">0.8</span>,               <span class="co"># Grosor de la flecha</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">labelsize =</span> <span class="dv">5</span>,                 <span class="co"># Tamaño de la letra del haplogrupo (A, B, C, D)</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>                <span class="at">alpha =</span> <span class="fl">0.3</span>,                   <span class="co"># Transparencia de los puntos</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>                <span class="co"># --- ESTÉTICA GENERAL ---</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">repel =</span> <span class="cn">TRUE</span>,                  <span class="co"># ¡MAGIA! Evita que los nombres se encimen</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">legend.title =</span> <span class="st">"Familia Lingüística"</span>,</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>                <span class="at">title =</span> <span class="st">"PCA Biplot: Poblaciones y Haplogrupos Mitocondriales"</span>,</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Opcional: Agregar elipses de confianza alrededor de las familias lingüísticas</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>                <span class="co"># addEllipses = TRUE, ellipse.level = 0.95</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Como factoextra usa ggplot2 de fondo, podemos seguir sumando capas de personalización:</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">linewidth =</span> <span class="dv">1</span>),</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el gráfico</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(grafico_biplot)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Laboratorio_2_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar en alta calidad</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"imagenes/pca_biplot.png"</span>, <span class="at">plot =</span> grafico_biplot, <span class="at">width =</span> <span class="dv">9</span>, <span class="at">height =</span> <span class="dv">7</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Es recomendable que la imagen pueda ser guardada y editada en PDF para que puedas ajustar todos los elementos a tu gusto en un programa de edición de imágenes (como Illustrator o Inkscape) antes de incluirla en tu artículo científico. Para ello, puedes usar la función <code>ggsave()</code> con el formato PDF:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el gráfico del PCA-Biplot como un archivo PDF de alta calidad</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"imagenes/pca_biplot.pdf"</span>, <span class="at">plot =</span> grafico_biplot, <span class="at">width =</span> <span class="dv">9</span>, <span class="at">height =</span> <span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Ignoring unknown labels:
+• fill : "Familia Lingüística"
+• linetype : "Familia Lingüística"
+• shape : "Familia Lingüística"</code></pre>
+</div>
+</div>
+<p>Sin embargo, este no es el único análisis que podamos hacer. Existe una variante del PCA llamado DAPC (Discriminant Analysis of Principal Components) que es especialmente útil para datos genéticos, ya que maximiza la separación entre grupos (por ejemplo, familias lingüísticas) mientras reduce la dimensionalidad de los datos. Para realizar un DAPC, usaremos el paquete <code>adegenet</code> de R, que está diseñado específicamente para análisis genéticos multivariados. Este análisis nos permitirá visualizar cómo se separan las poblaciones basándonos en las frecuencias de los haplogrupos mitocondriales, teniendo en cuenta la agrupación por familia lingüística:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalar y cargar el paquete adegenet si no lo tienes instalado</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(adegenet, <span class="at">quietly =</span> <span class="cn">TRUE</span>, <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'adegenet' was built under R version 4.5.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ade4' was built under R version 4.5.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+   /// adegenet 2.1.11 is loaded ////////////
+
+   &gt; overview: '?adegenet'
+   &gt; tutorials/doc/questions: 'adegenetWeb()' 
+   &gt; bug reports/feature requests: adegenetIssues()</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparar los datos para DAPC</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>grupos_ling <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(datos_freq<span class="sc">$</span>fam_ling)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Correr el DAPC de forma automática </span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># n.pca: Número de componentes a retener. Como tenemos ~5 haplogrupos, retenemos 4.</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># n.da: Funciones discriminantes. La regla general es (Número de Grupos - 1). </span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Si tenemos 4 familias lingüísticas (Maya, Otomangue, Yuto-Azteca, Desconocido), n.da = 3.</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>dapc_resultado <span class="ot">&lt;-</span> <span class="fu">dapc</span>(frecuencias, </span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">grp =</span> grupos_ling, </span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">n.pca =</span> <span class="dv">4</span>, </span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">n.da =</span> <span class="dv">3</span>)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver que haplogrupos pesan más en la discriminación</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dapc_resultado)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$n.dim
+[1] 3
+
+$n.pop
+[1] 4
+
+$assign.prop
+[1] 0.7272727
+
+$assign.per.pop
+Desconocido        Maya   Otomangue Yuto-azteca 
+      0.000       0.875       0.500       0.625 
+
+$prior.grp.size
+
+Desconocido        Maya   Otomangue Yuto-azteca 
+          2          24           2          16 
+
+$post.grp.size
+
+Desconocido        Maya   Otomangue Yuto-azteca 
+          0          29           1          14 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Personalizamos los colores (puedes poner tantos como familias tengas)</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>mis_colores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#e41a1c"</span>, <span class="st">"#377eb8"</span>, <span class="st">"#4daf4a"</span>, <span class="st">"#eeff00"</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="at">filename =</span> <span class="st">"imagenes/dapc_scatter.png"</span>, </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">2700</span>, <span class="at">height =</span> <span class="dv">2100</span>, <span class="at">res =</span> <span class="dv">300</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># R no lo mostrará en tu panel derecho, sino que lo dibujará directo en el archivo.</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter</span>(dapc_resultado, </span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">bg =</span> <span class="st">"white"</span>,          </span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">pch =</span> <span class="dv">20</span>,              </span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">cstar =</span> <span class="dv">0</span>,             </span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">cell =</span> <span class="dv">2</span>,              </span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">solid =</span> <span class="fl">0.6</span>,           </span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">cex =</span> <span class="fl">2.5</span>,             </span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> mis_colores,     </span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">clab =</span> <span class="dv">0</span>,              </span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">leg =</span> <span class="cn">TRUE</span>,            </span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">posi.leg =</span> <span class="st">"topright"</span>, </span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">txt.leg =</span> <span class="fu">levels</span>(grupos_ling), </span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">scree.pca =</span> <span class="cn">TRUE</span>,      </span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">posi.pca =</span> <span class="st">"bottomright"</span>,</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">scree.da =</span> <span class="cn">FALSE</span>       </span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Cerrar y guardar el archivo (¡CRUCIAL!)</span></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">dev.off</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>La imagen se verá así: <img src="imagenes/dapc_scatter.png" class="img-fluid" alt="Gráfico de dispersión del DAPC basado en frecuencias de haplogrupos mitocondriales"> El análisis DAPC muestra que existe un alto grado de flujo génico o linajes maternos compartidos entre las poblaciones Mayas y Yuto-aztecas, evidenciado por el gran traslape de sus elipses de inercia en el centro del gráfico. Las poblaciones catalogadas como ‘Desconocidas’ presentan un perfil genético intermedio que se inserta dentro de la diversidad de los grupos mayores. Finalmente, destaca la alta divergencia de una de las poblaciones Otomangues, la cual se separa drásticamente del clúster central a través del segundo eje discriminante</p>
+<p>Por otra parte, la tabla de resultados obtenida por el resumen del DAPC nos muestra qué haplogrupos tienen mayor peso. <code>$assign.prop</code> nos indica la proporción de asignación de cada población a cada grupo lingüístico. <code>$assign.per.pop</code>nos muestra la proporción de asignación de cada población a cada grupo lingüístico, lo que nos permite ver cómo mientras el grupo Maya tiene una asignación muy alta a su propia familia lingüística, el grupo Yuto-Azteca muestra una asignación más compartida entre varias familias, siendo un total de contribución del 62.5% a su propia familia y el resto repartido entre otras familias. Esto ya había sido descrito antes en <span class="citation" data-cites="lopez-hernandez2019">Lópe-Hernandez (<a href="#ref-lopez-hernandez2019" role="doc-biblioref">2019</a>)</span>, donde se observaba cómo desde tiempos de la colonia, el náhuatl fue utilizado como lingua franca a lo largo de los tres siglos de la conquista española, obligando a otros pueblos sometidos por los españoles a aprender tanto náhuatl como español para poder comunicarse con los conquistadores y con otros pueblos indígenas. Esto pudo haber facilitado el flujo génico entre poblaciones de diferentes familias lingüísticas, especialmente entre las poblaciones Yuto-Aztecas y Mayas, que se encuentran en regiones geográficas cercanas y que pudieron haber tenido contacto a lo largo de la historia. Por otra parte, <code>post.grp.size</code> es lo que el algoritmo determinó después de analizar los haplogrupos. Para calcular esto, “muestreo aleatoriamente”, ignorando las familias lingüisticas que tu le diste, miró únicamente las frecuencias de los haplogrupos y los asignó genéticamente al grupo al que se parecen más. Si observamos con atención, dos poblaciones anteriormente clasificadas como <em>Desconocidas</em> ahora se encuentran en uno de los grupos mayores (ya sea Maya o Yuto-Azteca), lo que sugiere que su perfil genético es más similar a uno de estos grupos que a los otros. Esto podría indicar que estas poblaciones tienen una historia evolutiva más cercana a uno de los grupos mayores, lo que podría ser resultado de eventos históricos como migraciones, mestizaje o intercambio cultural que han influenciado su composición genética a lo largo del tiempo. Para poderm observar con mayor detalle cómo se asignaron las poblaciones a los grupos genéticos determinados por el DAPC, podemos crear una tabla de contingencia que muestre la asignación de cada población a cada grupo genético. Esto nos permitirá ver claramente qué poblaciones fueron asignadas a cada grupo y cómo se distribuyen entre las familias lingüísticas:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una tabla de contingencia para mostrar la asignación de poblaciones a grupos genéticos</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>tabla_asignacion <span class="ot">&lt;-</span> <span class="fu">table</span>(datos_freq<span class="sc">$</span>fam_ling, dapc_resultado<span class="sc">$</span>assign)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar la tabla de asignación</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tabla_asignacion)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             
+              Desconocido Maya Otomangue Yuto-azteca
+  Desconocido           0    2         0           0
+  Maya                  0   21         0           3
+  Otomangue             0    0         1           1
+  Yuto-azteca           0    6         0          10</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver los nombres de las poblaciones que "cambiaron" de familia:</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>poblaciones_cambiadas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Poblacion =</span> datos_freq<span class="sc">$</span>pop,</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Original =</span> datos_freq<span class="sc">$</span>fam_ling,</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Asignado =</span> dapc_resultado<span class="sc">$</span>assign</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar solo las que no coinciden</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>diferentes <span class="ot">&lt;-</span> poblaciones_cambiadas[poblaciones_cambiadas<span class="sc">$</span>Original <span class="sc">!=</span> poblaciones_cambiadas<span class="sc">$</span>Asignado, ]</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(diferentes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Poblacion    Original    Asignado
+18     MYuc2        Maya Yuto-azteca
+21     Tenek        Maya Yuto-azteca
+22      Tojo        Maya Yuto-azteca
+25     p-Cho Desconocido        Maya
+26     p-Teo Desconocido        Maya
+28     c-Mix   Otomangue Yuto-azteca
+29     p-Azt Yuto-azteca        Maya
+31     p-Tet Yuto-azteca        Maya
+36     NHgo1 Yuto-azteca        Maya
+38     NPue1 Yuto-azteca        Maya
+39     NPue2 Yuto-azteca        Maya
+44     NVer4 Yuto-azteca        Maya</code></pre>
+</div>
+</div>
+<p>El análisis DAPC reveló que la clasificación lingüística no siempre coincide con la estructura genética mitocondrial. La reclasificación de poblaciones ‘Desconocidas’ hacia el grupo Maya, así como la reasignación de múltiples poblaciones Yuto-aztecas como Mayas, sugiere una historia compartida de linajes maternos en el área mesoamericana. Estos resultados indican que las barreras lingüísticas no impidieron el flujo génico entre estos grupos, resultando en una homogeneización parcial de las frecuencias de los haplogrupos A, B, C y D.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Andres2014" class="csl-entry" role="listitem">
+Andrés, Moreno-Estrada, Gignoux Christopher R., Fernández-López Juan Carlos, Zakharia Fouad, Sikora Martin, Contreras Alejandra V., Acuña-Alonzo Victor, et al. 2014. <span>“The Genetics of Mexico Recapitulates Native American Substructure and Affects Biomedical Traits.”</span> <em>Science</em> 344 (June): 1280–85. <a href="https://doi.org/10.1126/science.1251688">https://doi.org/10.1126/science.1251688</a>.
+</div>
+<div id="ref-brown1979" class="csl-entry" role="listitem">
+Brown, Wesley M, Matthew George Jr, and Allan C Wilson. 1979. <span>“Rapid Evolution of Animal Mitochondrial DNA.”</span> <em>Proceedings of the National Academy of Sciences</em> 76 (4): 1967–71.
+</div>
+<div id="ref-cavalli1994" class="csl-entry" role="listitem">
+Cavalli-Sforza, Luigi Luca, Paolo Menozzi, and Alberto Piazza. 1994. <em>The History and Geography of Human Genes</em>. Princeton university press.
+</div>
+<div id="ref-faust2015" class="csl-entry" role="listitem">
+Faust, Katherine A. 2015. <em>The Huasteca: Culture, History, and Interregional Exchange</em>. University of Oklahoma Press.
+</div>
+<div id="ref-Gonzalez-Oliver2017a" class="csl-entry" role="listitem">
+Gonzalez-Oliver, Angelica, Ernesto Garfias-Morales, David Glenn Smith, and Mirsha Quinto-Sanchez. 2017. <span>“<a href="https://www.ncbi.nlm.nih.gov/pubmed/29745249">Mitochondrial DNA Analysis of Mazahua and Otomi Indigenous Populations from Estado de Mexico Suggests a Distant Common Ancestry.</a>”</span> <em>Human Biology</em> 89 (July): 195–216.
+</div>
+<div id="ref-lopez-hernandez2019" class="csl-entry" role="listitem">
+Lópe-Hernandez, H Alessandro. 2019. <span>“Análisis de Marcadores Genéticos Del DNA Mitocondrialen Indígenas Teenek Que Habitan La Huasteca Potosina,méxico.”</span> PhD thesis, Ciudad de México, México: Universidad Nacional Autónoma de México.
+</div>
+<div id="ref-lorenz1996" class="csl-entry" role="listitem">
+Lorenz, Joseph G, and David Glenn Smith. 1996. <span>“Distribution of Four Founding mtDNA Haplogroups Among Native North Americans.”</span> <em>American Journal of Physical Anthropology: The Official Publication of the American Association of Physical Anthropologists</em> 101 (3): 307–23.
+</div>
+<div id="ref-smith1999" class="csl-entry" role="listitem">
+Smith, David Glenn, Ripan S Malhi, Jason Eshleman, Joseph G Lorenz, and Frederika A Kaestle. 1999. <span>“Distribution of mtDNA Haplogroup x Among Native North Americans.”</span> <em>American Journal of Physical Anthropology: The Official Publication of the American Association of Physical Anthropologists</em> 110 (3): 271–84.
+</div>
+<div id="ref-Wallace2007" class="csl-entry" role="listitem">
+Wallace, Douglas C. 2007. <span>“Why Do We Still Have a Maternally Inherited Mitochondrial DNA? Insights from Evolutionary Medicine.”</span> <em>Annual Review of Biochemistry</em> 76: 781–821. https://doi.org/<a href="https://doi.org/10.1146/annurev.biochem.76.081205.150955">https://doi.org/10.1146/annurev.biochem.76.081205.150955</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Laboratorio_1.html" class="pagination-link" aria-label="Trabajos en el Laboratorio I">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Trabajos en el Laboratorio I</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
