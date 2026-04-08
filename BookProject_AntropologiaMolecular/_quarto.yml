@@ -9,6 +9,7 @@ book:
     - index.qmd
     - intro.qmd
     - Laboratorio_1.qmd
+    - Laboratorio_2.qmd
     - summary.qmd
     - references.qmd
 
