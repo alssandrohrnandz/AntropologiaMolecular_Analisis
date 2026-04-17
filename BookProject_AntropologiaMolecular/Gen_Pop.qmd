@@ -1,0 +1,321 @@
+# Taller de Análisis Genético (2da parte)
+
+## Introducción 
+En ésta sección conoceremos las bases de la genética de poblaciones usada en antropología molecular. Para ello debemos comenzar con algunos conceptos teóricos matemáticos que debemos comprender antes de adentrarnos.
+
+## Glosario de términos
+- **Genética de poblaciones**: Es el estudio de la distribución y cambio de las frecuencias alélicas dentro de las poblaciones, y cómo estas frecuencias son influenciadas por factores como la selección natural, la deriva genética, la mutación y la migración.
+- **Alelo**: Es una de las diferentes formas de un gen que pueden existir en una población. Por ejemplo, para un gen que determina el color de ojos, los alelos podrían ser "azul" y "marrón".
+- **Frecuencia alélica**: Es la proporción de un alelo específico en una población. Se calcula de la siguiente forma:
+$p = \frac{i}{2N}$ donde $i$ es el número de copias del alelo en una población y $2N$ es el número total de alelos (ya que cada individuo tiene dos alelos para cada gen).
+- **Frecuencia genotípica**: Es la proporción de individuos con un genotipo específico en una población. Se calcula de la siguiente forma:
+$g = \frac{j}{N}$ donde $j$ es el número de individuos con un genotipo específico y $N$ es el número total de individuos en la población.
+- **Equilibrio de Hardy-Weinberg**: Es un principio que establece que las frecuencias alélicas y genotípicas en una población permanecerán constantes de generación en generación en ausencia de factores evolutivos. Se expresa matemáticamente como:
+$p^2 + 2pq + q^2 = 1$ donde $p$ es la frecuencia del alelo dominante, $q$ es la frecuencia del alelo recesivo, $p^2$ es la frecuencia del genotipo homocigoto dominante, $2pq$ es la frecuencia del genotipo heterocigoto y $q^2$ es la frecuencia del genotipo homocigoto recesivo.
+- **Deriva genética**: Es un proceso evolutivo que ocurre por azar, donde las frecuencias alélicas en una población pueden cambiar de generación en generación debido a eventos aleatorios, especialmente en poblaciones pequeñas. Matemáticamente se describe como "la herencia aleatoria de los alelos", lo que puede llevar a la fijación o pérdida de alelos en una población. Se describe matemáticamente por la fórmula:
+$Var(p) = \frac{p(1-p)}{2N}$ donde $Var(p)$ es la varianza de la frecuencia alélica, $p$ es la frecuencia del alelo y $N$ es el tamaño de la población.
+- **Selección natural**: Es un proceso evolutivo donde los individuos con características favorables tienen una mayor probabilidad de sobrevivir y reproducirse, lo que puede cambiar las frecuencias alélicas en una población a lo largo del tiempo.
+- **Migración**: Es el movimiento de individuos entre poblaciones, lo que puede introducir nuevos alelos en una población o cambiar las frecuencias alélicas existentes.
+- **Mutación**: Es un cambio en la secuencia de ADN que puede crear nuevos alelos. Las mutaciones pueden ser beneficiosas, neutras o perjudiciales para el organismo.
+- **Población**: Es un grupo de individuos de la misma especie que viven en una área geográfica específica y que pueden reproducirse entre sí.
+- **Genotipo**: Es la combinación de alelos que un individuo posee para un gen específico. Por ejemplo, si un individuo tiene el genotipo "Aa" para un gen con alelos "A" y "a", significa que tiene un alelo dominante "A" y un alelo recesivo "a".
+- **Fenotipo**: Es la expresión observable de un genotipo, es decir, las características físicas o comportamentales que resultan de la interacción entre el genotipo y el ambiente. Por ejemplo, el color de ojos es un fenotipo que puede ser influenciado por el genotipo y factores ambientales.
+- **Punto de equilibrio**: Es el estado en el que las frecuencias alélicas y genotípicas en una población no cambian de generación en generación, lo que indica que la población está en equilibrio evolutivo o equilibrio de Hardy-Weinberg.
+- **Modelo de Wright-Fisher**: Es un modelo matemático que describe la evolución de las frecuencias alélicas en una población a lo largo del tiempo, considerando factores como la selección natural, la deriva genética, la mutación y la migración.
+- **Modelo de Moran**: Es otro modelo matemático que describe la evolución de las frecuencias alélicas en una población, pero a diferencia del modelo de Wright-Fisher, el modelo de Moran asume que solo un individuo se reproduce y muere en cada generación, lo que puede ser más realista para ciertas poblaciones pequeñas.
+- **Coeficiente de inbreeding (F)**: Es una medida de la probabilidad de que dos alelos en un individuo sean idénticos por descendencia. Se calcula como:
+$F = \frac{H_e - H_o}{H_e}$ donde $H_e$ es la heterocigosidad esperada bajo el equilibrio de Hardy-Weinberg y $H_o$ es la heterocigosidad observada en la población.
+- **Heterocigosidad**: Es la proporción de individuos en una población que son heterocigotos para un gen específico. Se calcula como:
+$H = 1 - \sum p_i^2$ donde $p_i$ es la frecuencia del alelo $i$ en la población.
+- **Fijación de alelos**: Es el proceso por el cual un alelo alcanza una frecuencia de 1 (100%) en una población, lo que significa que todos los individuos en la población tienen ese alelo. Esto puede ocurrir debido a la selección natural, la deriva genética o la migración.
+- **Pérdida de alelos**: Es el proceso por el cual un alelo alcanza una frecuencia de 0 (0%) en una población, lo que significa que ningún individuo en la población tiene ese alelo. Esto puede ocurrir debido a la selección natural, la deriva genética o la migración.
+- **Tasa de mutación**: Es la frecuencia con la que ocurren las mutaciones en una población. Se calcula como el número de mutaciones por generación dividido por el número total de alelos en la población.
+- **Tasa de migración**: Es la proporción de individuos que migran entre poblaciones en un período de tiempo específico. Se calcula como el número de migrantes por generación dividido por el tamaño total de la población.
+- **Tasa de selección**: Es la medida de la fuerza de la selección natural en una población. Se calcula como la diferencia en la tasa de reproducción entre individuos con diferentes genotipos, y se expresa como un valor entre 0 y 1, donde 0 indica que no hay selección y 1 indica selección completa. Se puede calcular como:
+$s = \frac{w_{max} - w_{min}}{w_{max}}$ donde $w_{max}$ es la tasa de reproducción del genotipo más favorable y $w_{min}$ es la tasa de reproducción del genotipo menos favorable.
+- **Tasa de deriva genética**: Es la medida de la fuerza de la deriva genética en una población. Se calcula como la varianza de la frecuencia alélica debido a la deriva genética, y se expresa como un valor entre 0 y 1, donde 0 indica que no hay deriva genética y 1 indica deriva genética completa. Se puede calcular como:
+$d = \frac{Var(p)}{p(1-p)}$ donde $Var(p)$ es la varianza de la frecuencia alélica debido a la deriva genética, $p$ es la frecuencia del alelo y $1-p$ es la frecuencia del otro alelo. 
+
+# Fórmulas matemáticas relevantes
+- Frecuencia alélica: $p = \frac{i}{2N}$, $q = \frac{j}{2N}$
+- Frecuencia genotípica: $g = \frac{j}{N}$
+- Equilibrio de Hardy-Weinberg: $p^2 + 2pq + q^2 = 1$
+- Varianza de la frecuencia alélica debido a la deriva genética: $Var(p) = \frac{p(1-p)}{2N}$
+- Adecuación por selección: $w = \frac{n_{reproducidos}}{n_{total}}$
+
+El número de reproducidos es el número de individuos con un genotipo específico que se reproducen, y el número total es el número total de individuos con ese genotipo en la población.
+
+- Tasa de selección: $s = \frac{w_{max} - w_{min}}{w_{max}}$
+
+
+
+- Tasa de migración: $m = \frac{M}{N}$
+- Tasa de mutación: $\mu = \frac{M}{2N}$
+- Coeficiente de inbreeding: $F = \frac{H_e - H_o}{H_e}$
+- Heterocigosidad: $H = 1 - \sum p_i^2$
+- Probabilidad de fijación de un alelo debido a la deriva genética: $P_{fix} = p$
+
+
+# Ejercicio 1: Cálculo de frecuencias alélicas y genotípicas
+Supongamos que tenemos una población de 100 individuos con el siguiente genotipo para un gen específico:
+
+- 40 individuos con genotipo AA
+- 50 individuos con genotipo Aa
+- 10 individuos con genotipo aa
+
+1. Calcule la frecuencia alélica de los alelos A y a en la población.
+
+2. Calcule la frecuencia genotípica de los genotipos AA, Aa y aa en la población.
+
+3. Verifique si la población está en equilibrio de Hardy-Weinberg.
+
+Formula sugerida para el ejercicio 1: Usar las fórmulas de frecuencia alélica y genotípica para calcular las frecuencias correspondientes, y luego comparar las frecuencias genotípicas observadas con las esperadas bajo el equilibrio de Hardy-Weinberg.
+
+
+# Ejercicio 2: Efecto de la selección natural
+
+Supongamos que en una población de 100 individuos, el genotipo AA tiene una tasa de reproducción de 0.8, el genotipo Aa tiene una tasa de reproducción de 0.6 y el genotipo aa tiene una tasa de reproducción de 0.4.
+
+1. Calcule la tasa de selección para cada genotipo.
+2. Determine cuál genotipo es el más favorecido por la selección natural.
+3. Calcule la frecuencia alélica después de una generación de selección natural, asumiendo que la población está en equilibrio de Hardy-Weinberg antes de la selección.
+
+# Fórmulas sugeridas para el ejercicio 2:
+- Tasa de selección: Usar la fórmula $s = \frac{w_{max} - w_{min}}{w_{max}}$ para calcular la tasa de selección para cada genotipo, donde $w_{max}$ es la tasa de reproducción del genotipo más favorable y $w_{min}$ es la tasa de reproducción del genotipo menos favorable.
+
+# Ejercicio 3: Efecto de la deriva genética
+
+Supongamos que tenemos una población de 50 individuos con el siguiente genotipo para un gen específico:
+
+- 20 individuos con genotipo AA
+- 25 individuos con genotipo Aa
+- 5 individuos con genotipo aa
+
+1. Calcule la frecuencia alélica de los alelos A y a en la población.
+2. Calcule la varianza de la frecuencia alélica debido a la deriva genética.
+3. Determine la probabilidad de que el alelo A alcance la fijación en la población debido a la deriva genética.
+
+Formulas sugeridas para el ejercicio 3:
+- Frecuencia alélica: Usar la fórmula $p = \frac{i}{2N}$ para calcular la frecuencia del alelo A y $q = \frac{j}{2N}$ para calcular la frecuencia del alelo a, donde $i$ es el número de copias del alelo A y $j$ es el número de copias del alelo a en la población.
+- Varianza de la frecuencia alélica debido a la deriva genética: Usar la fórmula $Var(p) = \frac{p(1-p)}{2N}$ para calcular la varianza de la frecuencia alélica debido a la deriva genética, donde $p$ es la frecuencia del alelo A y $N$ es el tamaño de la población.
+- Probabilidad de fijación de un alelo debido a la deriva genética: Usar la fórmula $P_{fix} = p$ para calcular la probabilidad de que el alelo A alcance la fijación en la población debido a la deriva genética, donde $p$ es la frecuencia del alelo A en la población.
+
+# Ejercicio 4: Efecto de la migración
+
+Supongamos que tenemos dos poblaciones, Población 1 y Población 2, con las siguientes frecuencias alélicas para un gen específico:
+
+- Población 1: Alelo A = 0.7, Alelo a = 0.3
+- Población 2: Alelo A = 0.4, Alelo a = 0.6
+
+Si 10 individuos migran de la Población 1 a la Población 2, y 5 individuos migran de la Población 2 a la Población 1, calcule las nuevas frecuencias alélicas en ambas poblaciones después de la migración.
+
+Formulas sugeridas para el ejercicio 4:
+- Para calcular las nuevas frecuencias alélicas después de la migración, se puede usar la fórmula:
+$p' = \frac{(p \cdot N) + (m \cdot M)}{N + M}$ donde $p$ es la frecuencia alélica en la población original, $N$ es el tamaño de la población original, $m$ es la frecuencia alélica en la población migrante, $M$ es el número de migrantes y $p'$ es la nueva frecuencia alélica después de la migración.
+
+
+# Ejercicio 5: Efecto de la mutación
+
+Supongamos que en una población de 100 individuos, el alelo A tiene una frecuencia de 0.8 y el alelo a tiene una frecuencia de 0.2. Si la tasa de mutación de A a a es de 0.01 y la tasa de mutación de a a A es de 0.02, calcule las nuevas frecuencias alélicas después de una generación de mutación.
+
+Formulas sugeridas para el ejercicio 5:
+- Para calcular las nuevas frecuencias alélicas después de la mutación, se puede usar la fórmula:
+$p' = p(1 - \mu_{A \to a}) + q \cdot \mu_{a \to A}$ donde $p$ es la frecuencia del alelo A antes de la mutación, $q$ es la frecuencia del alelo a antes de la mutación, $\mu_{A \to a}$ es la tasa de mutación de A a a, $\mu_{a \to A}$ es la tasa de mutación de a a A y $p'$ es la nueva frecuencia del alelo A después de la mutación. De manera similar, se puede calcular la nueva frecuencia del alelo a usando la fórmula:
+$q' = q(1 - \mu_{a \to A}) + p \cdot \mu_{A \to a}$ donde $q'$ es la nueva frecuencia del alelo a después de la mutación.
+
+# Soluciones a los ejercicios
+
+## Solución al Ejercicio 1
+
+1. Frecuencia alélica:
+- Frecuencia del alelo A: $p = \frac{2(40) + 50}{2(100)} = \frac{130}{200} = 0.65$
+- Frecuencia del alelo a: $q = \frac{2(10) + 50}{2(100)} = \frac{70}{200} = 0.35$
+2. Frecuencia genotípica:
+- Frecuencia del genotipo AA: $g_{AA} = \frac{40}{100} = 0.4$
+- Frecuencia del genotipo Aa: $g_{Aa} = \frac{50}{100} = 0.5$
+- Frecuencia del genotipo aa: $g_{aa} = \frac{10}{100} = 0.1$
+3. Verificación del equilibrio de Hardy-Weinberg:
+- Frecuencia esperada del genotipo AA: $p^2 = (0.65)^2 = 0.4225$
+- Frecuencia esperada del genotipo Aa: $2pq = 2(0.65)(0.35) = 0.455$
+- Frecuencia esperada del genotipo aa: $q^2 = (0.35)^2 = 0.1225$
+Comparando las frecuencias observadas con las esperadas, vemos que no están en equilibrio de Hardy-Weinberg, ya que las frecuencias genotípicas observadas no coinciden con las esperadas.
+
+## Solución al Ejercicio 2
+
+1. Tasa de selección:
+- Para el genotipo AA: $s_{AA} = \frac{0.8 - 0.4}{0.8} = 0.5$
+- Para el genotipo Aa: $s_{Aa} = \frac{0.6 - 0.4}{0.8} = 0.25$
+- Para el genotipo aa: $s_{aa} = \frac{0.4 - 0.4}{0.8} = 0$
+2. El genotipo más favorecido por la selección natural es el genotipo AA, ya que tiene la tasa de selección más alta (0.5).
+3. Para calcular la frecuencia alélica después de una generación de selección natural, primero calculamos las frecuencias genotípicas después de la selección:
+- Frecuencia del genotipo AA después de la selección: $g'_{AA} = \frac{0.4 \cdot 0.8}{0.4 \cdot 0.8 + 0.5 \cdot 0.6 + 0.1 \cdot 0.4} = \frac{0.32}{0.32 + 0.3 + 0.04} = \frac{0.32}{0.66} = 0.4848$
+- Frecuencia del genotipo Aa después de la selección: $g'_{Aa} = \frac{0.5 \cdot 0.6}{0.4 \cdot 0.8 + 0.5 \cdot 0.6 + 0.1 \cdot 0.4} = \frac{0.3}{0.66} = 0.4545$
+- Frecuencia del genotipo aa después de la selección: $g'_{aa} = \frac{0.1 \cdot 0.4}{0.4 \cdot 0.8 + 0.5 \cdot 0.6 + 0.1 \cdot 0.4} = \frac{0.04}{0.66} = 0.0606$
+Luego, calculamos las frecuencias alélicas después de la selección:
+- Frecuencia del alelo A después de la selección: $p' = g'_{AA} + \frac{1}{2}g'_{Aa} = 0.4848 + \frac{1}{2}(0.4545) = 0.4848 + 0.22725 = 0.71205$
+- Frecuencia del alelo a después de la selección: $q' = g'_{aa} + \frac{1}{2}g'_{Aa} = 0.0606 + \frac{1}{2}(0.4545) = 0.0606 + 0.22725 = 0.28785$
+
+## Solución al Ejercicio 3
+
+1. Frecuencia alélica:
+- Frecuencia del alelo A: $p = \frac{2(20) + 25}{2(50)} = \frac{65}{100} = 0.65$
+- Frecuencia del alelo a: $q = \frac{2(5) + 25}{2(50)} = \frac{35}{100} = 0.35$
+2. Varianza de la frecuencia alélica debido a la deriva genética:
+$Var(p) = \frac{p(1-p)}{2N} = \frac{0.65(1-0.65)}{2(50)} = \frac{0.65(0.35)}{100} = \frac{0.2275}{100} = 0.002275$
+3. Probabilidad de que el alelo A alcance la fijación debido a la deriva genética:
+La probabilidad de que un alelo alcance la fijación debido a la deriva genética es igual a su frecuencia alélica actual, por lo que la probabilidad de que el alelo A alcance la fijación es de 0.65 (65%).
+
+## Solución al Ejercicio 4
+
+Después de la migración, las nuevas frecuencias alélicas en ambas poblaciones se calculan de la siguiente manera:
+
+- Para la Población 1:
+- Frecuencia del alelo A: $p'_{P1} = \frac{(0.7 \cdot 100) + (0.4 \cdot 5)}{100 + 5} = \frac{70 + 2}{105} = \frac{72}{105} = 0.6857$
+- Frecuencia del alelo a: $q'_{P1} = \frac{(0.3 \cdot 100) + (0.6 \cdot 5)}{100 + 5} = \frac{30 + 3}{105} = \frac{33}{105} = 0.3143$
+- Para la Población 2:
+- Frecuencia del alelo A: $p'_{P2} = \frac{(0.4 \cdot 100) + (0.7 \cdot 10)}{100 + 10} = \frac{40 + 7}{110} = \frac{47}{110} = 0.4273$
+- Frecuencia del alelo a: $q'_{P2} = \frac{(0.6 \cdot 100) + (0.3 \cdot 10)}{100 + 10} = \frac{60 + 3}{110} = \frac{63}{110} = 0.5727$
+
+## Solución al Ejercicio 5
+
+Después de una generación de mutación, las nuevas frecuencias alélicas se calculan de la siguiente manera:
+
+- Frecuencia del alelo A después de la mutación: $p' = p(1 - \mu_{A \to a}) + q \cdot \mu_{a \to A} = 0.8(1 - 0.01) + 0.2 \cdot 0.02 = 0.8(0.99) + 0.004 = 0.792 + 0.004 = 0.796$
+- Frecuencia del alelo a después de la mutación: $q' = q(1 - \mu_{a \to A}) + p \cdot \mu_{A \to a} = 0.2(1 - 0.02) + 0.8 \cdot 0.01 = 0.2(0.98) + 0.008 = 0.196 + 0.008 = 0.204$   
+
+# Ejercicios adicionales en R
+
+Para estos ejercicios, simularemos la evolución de las frecuencias $AA$, $Aa$ y $aa$ en una población a lo largo de 10 generaciones, considerando la selección natural, la deriva genética, la migración y la mutación.
+
+```{r}
+# Parámetros iniciales
+p <- 0.8  # Frecuencia del alelo A
+q <- 0.2  # Frecuencia del alelo a
+mu_A_to_a <- 0.01  # Tasa de mutación de A a a
+mu_a_to_A <- 0.02  # Tasa de mutación de a a A
+s_AA <- 0.5  # Tasa de selección para AA
+s_Aa <- 0.25  # Tasa de selección para Aa
+s_aa <- 0  # Tasa de selección para aa
+N <- 1000 # Tamaño de la población
+generations <- 100 # En humanos, el número de generaciones en 200 años es de aproximadamente 100
+# Simulación de la evolución de las frecuencias alélicas
+frequencies <- data.frame(Generation = 0:generations, p = NA, q = NA)
+frequencies$p[1] <- p
+frequencies$q[1] <- q
+for (gen in 1:generations) {
+  # Selección natural
+  w_AA <- 1 - s_AA
+  w_Aa <- 1 - s_Aa
+  w_aa <- 1 - s_aa
+  
+  # Frecuencias genotípicas después de la selección
+  g_AA <- p^2 * w_AA
+  g_Aa <- 2 * p * q * w_Aa
+  g_aa <- q^2 * w_aa
+  
+  # Normalización de las frecuencias genotípicas
+  total_fitness <- g_AA + g_Aa + g_aa
+  g_AA <- g_AA / total_fitness
+  g_Aa <- g_Aa / total_fitness
+  g_aa <- g_aa / total_fitness
+  
+  # Deriva genética (simulación de una muestra aleatoria)
+  genotypes <- sample(c("AA", "Aa", "aa"), size = N, replace = TRUE, prob = c(g_AA, g_Aa, g_aa))
+  
+  # Cálculo de las frecuencias alélicas después de la deriva genética
+  p <- (sum(genotypes == "AA") * 2 + sum(genotypes == "Aa")) / (2 * N)
+  q <- (sum(genotypes == "aa") * 2 + sum(genotypes == "Aa")) / (2 * N)
+  
+  # Mutación
+  p <- p * (1 - mu_A_to_a) + q * mu_a_to_A
+  q <- q * (1 - mu_a_to_A) + p * mu_A_to_a
+  
+  # Almacenamiento de las frecuencias alélicas para esta generación
+  frequencies$p[gen + 1] <- p
+  frequencies$q[gen + 1] <- q
+}
+
+# Visualización de las frecuencias alélicas a lo largo de las generaciones
+library(ggplot2)
+ggplot(frequencies, aes(x = Generation)) +
+  geom_line(aes(y = p, color = "A")) +
+  geom_line(aes(y = q, color = "a")) +
+  labs(title = "Evolución de las frecuencias alélicas a lo largo de las generaciones",
+       x = "Generación",
+       y = "Frecuencia alélica") +
+  scale_color_manual(values = c("blue", "red"), labels = c("A", "a")) +
+  theme_minimal() +
+  theme(legend.title = element_blank())
+
+```
+
+Suponiendo que contamos con dos alelos, uno ligado a la tolerancia a la lactosa (L) y otro ligado a la intolerancia a la lactosa (l), podemos simular la evolución de las frecuencias alélicas en una población a lo largo de 100 generaciones, considerando la selección natural, la deriva genética, la migración y la mutación.
+
+# Simulación de la evolución de las frecuencias alélicas para la tolerancia a la lactosa
+```{r}
+# Parámetros iniciales
+p <- 0.7  # Frecuencia del alelo L (tolerancia a la lactosa)
+q <- 0.3  # Frecuencia del alelo l (intolerancia a la lactosa)
+mu_L_to_l <- 0.001  # Tasa de mutación de L a l
+mu_l_to_L <- 0.002  # Tasa de mutación de l a L
+s_LL <- 0.1  # Tasa de selección para LL (tolerancia a la lactosa)
+s_Ll <- 0.05  # Tasa de selección para Ll (tolerancia a la lactosa)
+s_ll <- 0  # Tasa de selección para ll (intolerancia a la lactosa)
+N <- 2000 # Tamaño de la población calculado para humanos hace aproximadamente 10,000 años
+generations <- 500 # En humanos, el número de generaciones en 10,000 años es de aproximadamente 500
+# Simulación de la evolución de las frecuencias alélicas
+frequencies <- data.frame(Generation = 0:generations, p = NA, q = NA)
+frequencies$p[1] <- p
+frequencies$q[1] <- q
+for (gen in 1:generations) {
+  # Selección natural
+  w_AA <- 1 - s_AA
+  w_Aa <- 1 - s_Aa
+  w_aa <- 1 - s_aa
+  
+  # Frecuencias genotípicas después de la selección
+  g_AA <- p^2 * w_AA
+  g_Aa <- 2 * p * q * w_Aa
+  g_aa <- q^2 * w_aa
+  
+  # Normalización de las frecuencias genotípicas
+  total_fitness <- g_AA + g_Aa + g_aa
+  g_AA <- g_AA / total_fitness
+  g_Aa <- g_Aa / total_fitness
+  g_aa <- g_aa / total_fitness
+  
+  # Deriva genética (simulación de una muestra aleatoria)
+  genotypes <- sample(c("AA", "Aa", "aa"), size = N, replace = TRUE, prob = c(g_AA, g_Aa, g_aa))
+  
+  # Cálculo de las frecuencias alélicas después de la deriva genética
+  p <- (sum(genotypes == "AA") * 2 + sum(genotypes == "Aa")) / (2 * N)
+  q <- (sum(genotypes == "aa") * 2 + sum(genotypes == "Aa")) / (2 * N)
+  
+  # Mutación
+  p <- p * (1 - mu_A_to_a) + q * mu_a_to_A
+  q <- q * (1 - mu_a_to_A) + p * mu_A_to_a
+  
+  # Almacenamiento de las frecuencias alélicas para esta generación
+  frequencies$p[gen + 1] <- p
+  frequencies$q[gen + 1] <- q
+}
+# Visualización de las frecuencias alélicas a lo largo de las generaciones
+ggplot(frequencies, aes(x = Generation)) +
+  geom_line(aes(y = p, color = "L")) +
+  geom_line(aes(y = q, color = "l")) +
+  labs(title = "Evolución de las frecuencias alélicas para la tolerancia a la lactosa",
+       x = "Generación",
+       y = "Frecuencia alélica") +
+  scale_color_manual(values = c("blue", "red"), labels = c("L", "l")) +
+  theme_minimal() +
+  theme(legend.title = element_blank())
+
+```
+
+
+
+# Referencias
+
+- Hartl, D. L., & Clark, A. G. (2007). Principles of population genetics. Sinauer Associates.
+- Gillespie, J. H. (2004). Population genetics: a concise guide. JHU Press.
+- Hedrick, P. W. (2011). Genetics of populations. Jones & Bartlett Learning.
