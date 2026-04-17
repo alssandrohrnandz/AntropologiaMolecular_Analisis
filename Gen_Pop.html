@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Taller de Análisis Genético (2da parte) – Página de Análisis de Datos Genéticos de Antropología Molecular</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./summary.html" rel="next">
+<link href="./Laboratorio_2.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Gen_Pop.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Taller de Análisis Genético (2da parte)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Página de Análisis de Datos Genéticos de Antropología Molecular</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Bienvenida</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R para principiantes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Laboratorio_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Trabajos en el Laboratorio I</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Laboratorio_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">¿Qué pasa si solo tengo frecuencias de haplogrupos?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Gen_Pop.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Taller de Análisis Genético (2da parte)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">5.1</span> Introducción</a></li>
+  <li><a href="#glosario-de-términos" id="toc-glosario-de-términos" class="nav-link" data-scroll-target="#glosario-de-términos"><span class="header-section-number">5.2</span> Glosario de términos</a></li>
+  <li><a href="#fórmulas-matemáticas-relevantes" id="toc-fórmulas-matemáticas-relevantes" class="nav-link" data-scroll-target="#fórmulas-matemáticas-relevantes"><span class="header-section-number">6</span> Fórmulas matemáticas relevantes</a></li>
+  <li><a href="#ejercicio-1-cálculo-de-frecuencias-alélicas-y-genotípicas" id="toc-ejercicio-1-cálculo-de-frecuencias-alélicas-y-genotípicas" class="nav-link" data-scroll-target="#ejercicio-1-cálculo-de-frecuencias-alélicas-y-genotípicas"><span class="header-section-number">7</span> Ejercicio 1: Cálculo de frecuencias alélicas y genotípicas</a></li>
+  <li><a href="#ejercicio-2-efecto-de-la-selección-natural" id="toc-ejercicio-2-efecto-de-la-selección-natural" class="nav-link" data-scroll-target="#ejercicio-2-efecto-de-la-selección-natural"><span class="header-section-number">8</span> Ejercicio 2: Efecto de la selección natural</a></li>
+  <li><a href="#fórmulas-sugeridas-para-el-ejercicio-2" id="toc-fórmulas-sugeridas-para-el-ejercicio-2" class="nav-link" data-scroll-target="#fórmulas-sugeridas-para-el-ejercicio-2"><span class="header-section-number">9</span> Fórmulas sugeridas para el ejercicio 2:</a></li>
+  <li><a href="#ejercicio-3-efecto-de-la-deriva-genética" id="toc-ejercicio-3-efecto-de-la-deriva-genética" class="nav-link" data-scroll-target="#ejercicio-3-efecto-de-la-deriva-genética"><span class="header-section-number">10</span> Ejercicio 3: Efecto de la deriva genética</a></li>
+  <li><a href="#ejercicio-4-efecto-de-la-migración" id="toc-ejercicio-4-efecto-de-la-migración" class="nav-link" data-scroll-target="#ejercicio-4-efecto-de-la-migración"><span class="header-section-number">11</span> Ejercicio 4: Efecto de la migración</a></li>
+  <li><a href="#ejercicio-5-efecto-de-la-mutación" id="toc-ejercicio-5-efecto-de-la-mutación" class="nav-link" data-scroll-target="#ejercicio-5-efecto-de-la-mutación"><span class="header-section-number">12</span> Ejercicio 5: Efecto de la mutación</a></li>
+  <li><a href="#soluciones-a-los-ejercicios" id="toc-soluciones-a-los-ejercicios" class="nav-link" data-scroll-target="#soluciones-a-los-ejercicios"><span class="header-section-number">13</span> Soluciones a los ejercicios</a>
+  <ul class="collapse">
+  <li><a href="#solución-al-ejercicio-1" id="toc-solución-al-ejercicio-1" class="nav-link" data-scroll-target="#solución-al-ejercicio-1"><span class="header-section-number">13.1</span> Solución al Ejercicio 1</a></li>
+  <li><a href="#solución-al-ejercicio-2" id="toc-solución-al-ejercicio-2" class="nav-link" data-scroll-target="#solución-al-ejercicio-2"><span class="header-section-number">13.2</span> Solución al Ejercicio 2</a></li>
+  <li><a href="#solución-al-ejercicio-3" id="toc-solución-al-ejercicio-3" class="nav-link" data-scroll-target="#solución-al-ejercicio-3"><span class="header-section-number">13.3</span> Solución al Ejercicio 3</a></li>
+  <li><a href="#solución-al-ejercicio-4" id="toc-solución-al-ejercicio-4" class="nav-link" data-scroll-target="#solución-al-ejercicio-4"><span class="header-section-number">13.4</span> Solución al Ejercicio 4</a></li>
+  <li><a href="#solución-al-ejercicio-5" id="toc-solución-al-ejercicio-5" class="nav-link" data-scroll-target="#solución-al-ejercicio-5"><span class="header-section-number">13.5</span> Solución al Ejercicio 5</a></li>
+  </ul></li>
+  <li><a href="#ejercicios-adicionales-en-r" id="toc-ejercicios-adicionales-en-r" class="nav-link" data-scroll-target="#ejercicios-adicionales-en-r"><span class="header-section-number">14</span> Ejercicios adicionales en R</a></li>
+  <li><a href="#simulación-de-la-evolución-de-las-frecuencias-alélicas-para-la-tolerancia-a-la-lactosa" id="toc-simulación-de-la-evolución-de-las-frecuencias-alélicas-para-la-tolerancia-a-la-lactosa" class="nav-link" data-scroll-target="#simulación-de-la-evolución-de-las-frecuencias-alélicas-para-la-tolerancia-a-la-lactosa"><span class="header-section-number">15</span> Simulación de la evolución de las frecuencias alélicas para la tolerancia a la lactosa</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">16</span> Referencias</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Taller de Análisis Genético (2da parte)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introducción" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">5.1</span> Introducción</h2>
+<p>En ésta sección conoceremos las bases de la genética de poblaciones usada en antropología molecular. Para ello debemos comenzar con algunos conceptos teóricos matemáticos que debemos comprender antes de adentrarnos.</p>
+</section>
+<section id="glosario-de-términos" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="glosario-de-términos"><span class="header-section-number">5.2</span> Glosario de términos</h2>
+<ul>
+<li><strong>Genética de poblaciones</strong>: Es el estudio de la distribución y cambio de las frecuencias alélicas dentro de las poblaciones, y cómo estas frecuencias son influenciadas por factores como la selección natural, la deriva genética, la mutación y la migración.</li>
+<li><strong>Alelo</strong>: Es una de las diferentes formas de un gen que pueden existir en una población. Por ejemplo, para un gen que determina el color de ojos, los alelos podrían ser “azul” y “marrón”.</li>
+<li><strong>Frecuencia alélica</strong>: Es la proporción de un alelo específico en una población. Se calcula de la siguiente forma: <span class="math inline">\(p = \frac{i}{2N}\)</span> donde <span class="math inline">\(i\)</span> es el número de copias del alelo en una población y <span class="math inline">\(2N\)</span> es el número total de alelos (ya que cada individuo tiene dos alelos para cada gen).</li>
+<li><strong>Frecuencia genotípica</strong>: Es la proporción de individuos con un genotipo específico en una población. Se calcula de la siguiente forma: <span class="math inline">\(g = \frac{j}{N}\)</span> donde <span class="math inline">\(j\)</span> es el número de individuos con un genotipo específico y <span class="math inline">\(N\)</span> es el número total de individuos en la población.</li>
+<li><strong>Equilibrio de Hardy-Weinberg</strong>: Es un principio que establece que las frecuencias alélicas y genotípicas en una población permanecerán constantes de generación en generación en ausencia de factores evolutivos. Se expresa matemáticamente como: <span class="math inline">\(p^2 + 2pq + q^2 = 1\)</span> donde <span class="math inline">\(p\)</span> es la frecuencia del alelo dominante, <span class="math inline">\(q\)</span> es la frecuencia del alelo recesivo, <span class="math inline">\(p^2\)</span> es la frecuencia del genotipo homocigoto dominante, <span class="math inline">\(2pq\)</span> es la frecuencia del genotipo heterocigoto y <span class="math inline">\(q^2\)</span> es la frecuencia del genotipo homocigoto recesivo.</li>
+<li><strong>Deriva genética</strong>: Es un proceso evolutivo que ocurre por azar, donde las frecuencias alélicas en una población pueden cambiar de generación en generación debido a eventos aleatorios, especialmente en poblaciones pequeñas. Matemáticamente se describe como “la herencia aleatoria de los alelos”, lo que puede llevar a la fijación o pérdida de alelos en una población. Se describe matemáticamente por la fórmula: <span class="math inline">\(Var(p) = \frac{p(1-p)}{2N}\)</span> donde <span class="math inline">\(Var(p)\)</span> es la varianza de la frecuencia alélica, <span class="math inline">\(p\)</span> es la frecuencia del alelo y <span class="math inline">\(N\)</span> es el tamaño de la población.</li>
+<li><strong>Selección natural</strong>: Es un proceso evolutivo donde los individuos con características favorables tienen una mayor probabilidad de sobrevivir y reproducirse, lo que puede cambiar las frecuencias alélicas en una población a lo largo del tiempo.</li>
+<li><strong>Migración</strong>: Es el movimiento de individuos entre poblaciones, lo que puede introducir nuevos alelos en una población o cambiar las frecuencias alélicas existentes.</li>
+<li><strong>Mutación</strong>: Es un cambio en la secuencia de ADN que puede crear nuevos alelos. Las mutaciones pueden ser beneficiosas, neutras o perjudiciales para el organismo.</li>
+<li><strong>Población</strong>: Es un grupo de individuos de la misma especie que viven en una área geográfica específica y que pueden reproducirse entre sí.</li>
+<li><strong>Genotipo</strong>: Es la combinación de alelos que un individuo posee para un gen específico. Por ejemplo, si un individuo tiene el genotipo “Aa” para un gen con alelos “A” y “a”, significa que tiene un alelo dominante “A” y un alelo recesivo “a”.</li>
+<li><strong>Fenotipo</strong>: Es la expresión observable de un genotipo, es decir, las características físicas o comportamentales que resultan de la interacción entre el genotipo y el ambiente. Por ejemplo, el color de ojos es un fenotipo que puede ser influenciado por el genotipo y factores ambientales.</li>
+<li><strong>Punto de equilibrio</strong>: Es el estado en el que las frecuencias alélicas y genotípicas en una población no cambian de generación en generación, lo que indica que la población está en equilibrio evolutivo o equilibrio de Hardy-Weinberg.</li>
+<li><strong>Modelo de Wright-Fisher</strong>: Es un modelo matemático que describe la evolución de las frecuencias alélicas en una población a lo largo del tiempo, considerando factores como la selección natural, la deriva genética, la mutación y la migración.</li>
+<li><strong>Modelo de Moran</strong>: Es otro modelo matemático que describe la evolución de las frecuencias alélicas en una población, pero a diferencia del modelo de Wright-Fisher, el modelo de Moran asume que solo un individuo se reproduce y muere en cada generación, lo que puede ser más realista para ciertas poblaciones pequeñas.</li>
+<li><strong>Coeficiente de inbreeding (F)</strong>: Es una medida de la probabilidad de que dos alelos en un individuo sean idénticos por descendencia. Se calcula como: <span class="math inline">\(F = \frac{H_e - H_o}{H_e}\)</span> donde <span class="math inline">\(H_e\)</span> es la heterocigosidad esperada bajo el equilibrio de Hardy-Weinberg y <span class="math inline">\(H_o\)</span> es la heterocigosidad observada en la población.</li>
+<li><strong>Heterocigosidad</strong>: Es la proporción de individuos en una población que son heterocigotos para un gen específico. Se calcula como: <span class="math inline">\(H = 1 - \sum p_i^2\)</span> donde <span class="math inline">\(p_i\)</span> es la frecuencia del alelo <span class="math inline">\(i\)</span> en la población.</li>
+<li><strong>Fijación de alelos</strong>: Es el proceso por el cual un alelo alcanza una frecuencia de 1 (100%) en una población, lo que significa que todos los individuos en la población tienen ese alelo. Esto puede ocurrir debido a la selección natural, la deriva genética o la migración.</li>
+<li><strong>Pérdida de alelos</strong>: Es el proceso por el cual un alelo alcanza una frecuencia de 0 (0%) en una población, lo que significa que ningún individuo en la población tiene ese alelo. Esto puede ocurrir debido a la selección natural, la deriva genética o la migración.</li>
+<li><strong>Tasa de mutación</strong>: Es la frecuencia con la que ocurren las mutaciones en una población. Se calcula como el número de mutaciones por generación dividido por el número total de alelos en la población.</li>
+<li><strong>Tasa de migración</strong>: Es la proporción de individuos que migran entre poblaciones en un período de tiempo específico. Se calcula como el número de migrantes por generación dividido por el tamaño total de la población.</li>
+<li><strong>Tasa de selección</strong>: Es la medida de la fuerza de la selección natural en una población. Se calcula como la diferencia en la tasa de reproducción entre individuos con diferentes genotipos, y se expresa como un valor entre 0 y 1, donde 0 indica que no hay selección y 1 indica selección completa. Se puede calcular como: <span class="math inline">\(s = \frac{w_{max} - w_{min}}{w_{max}}\)</span> donde <span class="math inline">\(w_{max}\)</span> es la tasa de reproducción del genotipo más favorable y <span class="math inline">\(w_{min}\)</span> es la tasa de reproducción del genotipo menos favorable.</li>
+<li><strong>Tasa de deriva genética</strong>: Es la medida de la fuerza de la deriva genética en una población. Se calcula como la varianza de la frecuencia alélica debido a la deriva genética, y se expresa como un valor entre 0 y 1, donde 0 indica que no hay deriva genética y 1 indica deriva genética completa. Se puede calcular como: <span class="math inline">\(d = \frac{Var(p)}{p(1-p)}\)</span> donde <span class="math inline">\(Var(p)\)</span> es la varianza de la frecuencia alélica debido a la deriva genética, <span class="math inline">\(p\)</span> es la frecuencia del alelo y <span class="math inline">\(1-p\)</span> es la frecuencia del otro alelo.</li>
+</ul>
+</section>
+<section id="fórmulas-matemáticas-relevantes" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Fórmulas matemáticas relevantes</h1>
+<ul>
+<li>Frecuencia alélica: <span class="math inline">\(p = \frac{i}{2N}\)</span>, <span class="math inline">\(q = \frac{j}{2N}\)</span></li>
+<li>Frecuencia genotípica: <span class="math inline">\(g = \frac{j}{N}\)</span></li>
+<li>Equilibrio de Hardy-Weinberg: <span class="math inline">\(p^2 + 2pq + q^2 = 1\)</span></li>
+<li>Varianza de la frecuencia alélica debido a la deriva genética: <span class="math inline">\(Var(p) = \frac{p(1-p)}{2N}\)</span></li>
+<li>Adecuación por selección: <span class="math inline">\(w = \frac{n_{reproducidos}}{n_{total}}\)</span></li>
+</ul>
+<p>El número de reproducidos es el número de individuos con un genotipo específico que se reproducen, y el número total es el número total de individuos con ese genotipo en la población.</p>
+<ul>
+<li><p>Tasa de selección: <span class="math inline">\(s = \frac{w_{max} - w_{min}}{w_{max}}\)</span></p></li>
+<li><p>Tasa de migración: <span class="math inline">\(m = \frac{M}{N}\)</span></p></li>
+<li><p>Tasa de mutación: <span class="math inline">\(\mu = \frac{M}{2N}\)</span></p></li>
+<li><p>Coeficiente de inbreeding: <span class="math inline">\(F = \frac{H_e - H_o}{H_e}\)</span></p></li>
+<li><p>Heterocigosidad: <span class="math inline">\(H = 1 - \sum p_i^2\)</span></p></li>
+<li><p>Probabilidad de fijación de un alelo debido a la deriva genética: <span class="math inline">\(P_{fix} = p\)</span></p></li>
+</ul>
+</section>
+<section id="ejercicio-1-cálculo-de-frecuencias-alélicas-y-genotípicas" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Ejercicio 1: Cálculo de frecuencias alélicas y genotípicas</h1>
+<p>Supongamos que tenemos una población de 100 individuos con el siguiente genotipo para un gen específico:</p>
+<ul>
+<li>40 individuos con genotipo AA</li>
+<li>50 individuos con genotipo Aa</li>
+<li>10 individuos con genotipo aa</li>
+</ul>
+<ol type="1">
+<li><p>Calcule la frecuencia alélica de los alelos A y a en la población.</p></li>
+<li><p>Calcule la frecuencia genotípica de los genotipos AA, Aa y aa en la población.</p></li>
+<li><p>Verifique si la población está en equilibrio de Hardy-Weinberg.</p></li>
+</ol>
+<p>Formula sugerida para el ejercicio 1: Usar las fórmulas de frecuencia alélica y genotípica para calcular las frecuencias correspondientes, y luego comparar las frecuencias genotípicas observadas con las esperadas bajo el equilibrio de Hardy-Weinberg.</p>
+</section>
+<section id="ejercicio-2-efecto-de-la-selección-natural" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Ejercicio 2: Efecto de la selección natural</h1>
+<p>Supongamos que en una población de 100 individuos, el genotipo AA tiene una tasa de reproducción de 0.8, el genotipo Aa tiene una tasa de reproducción de 0.6 y el genotipo aa tiene una tasa de reproducción de 0.4.</p>
+<ol type="1">
+<li>Calcule la tasa de selección para cada genotipo.</li>
+<li>Determine cuál genotipo es el más favorecido por la selección natural.</li>
+<li>Calcule la frecuencia alélica después de una generación de selección natural, asumiendo que la población está en equilibrio de Hardy-Weinberg antes de la selección.</li>
+</ol>
+</section>
+<section id="fórmulas-sugeridas-para-el-ejercicio-2" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Fórmulas sugeridas para el ejercicio 2:</h1>
+<ul>
+<li>Tasa de selección: Usar la fórmula <span class="math inline">\(s = \frac{w_{max} - w_{min}}{w_{max}}\)</span> para calcular la tasa de selección para cada genotipo, donde <span class="math inline">\(w_{max}\)</span> es la tasa de reproducción del genotipo más favorable y <span class="math inline">\(w_{min}\)</span> es la tasa de reproducción del genotipo menos favorable.</li>
+</ul>
+</section>
+<section id="ejercicio-3-efecto-de-la-deriva-genética" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Ejercicio 3: Efecto de la deriva genética</h1>
+<p>Supongamos que tenemos una población de 50 individuos con el siguiente genotipo para un gen específico:</p>
+<ul>
+<li>20 individuos con genotipo AA</li>
+<li>25 individuos con genotipo Aa</li>
+<li>5 individuos con genotipo aa</li>
+</ul>
+<ol type="1">
+<li>Calcule la frecuencia alélica de los alelos A y a en la población.</li>
+<li>Calcule la varianza de la frecuencia alélica debido a la deriva genética.</li>
+<li>Determine la probabilidad de que el alelo A alcance la fijación en la población debido a la deriva genética.</li>
+</ol>
+<p>Formulas sugeridas para el ejercicio 3: - Frecuencia alélica: Usar la fórmula <span class="math inline">\(p = \frac{i}{2N}\)</span> para calcular la frecuencia del alelo A y <span class="math inline">\(q = \frac{j}{2N}\)</span> para calcular la frecuencia del alelo a, donde <span class="math inline">\(i\)</span> es el número de copias del alelo A y <span class="math inline">\(j\)</span> es el número de copias del alelo a en la población. - Varianza de la frecuencia alélica debido a la deriva genética: Usar la fórmula <span class="math inline">\(Var(p) = \frac{p(1-p)}{2N}\)</span> para calcular la varianza de la frecuencia alélica debido a la deriva genética, donde <span class="math inline">\(p\)</span> es la frecuencia del alelo A y <span class="math inline">\(N\)</span> es el tamaño de la población. - Probabilidad de fijación de un alelo debido a la deriva genética: Usar la fórmula <span class="math inline">\(P_{fix} = p\)</span> para calcular la probabilidad de que el alelo A alcance la fijación en la población debido a la deriva genética, donde <span class="math inline">\(p\)</span> es la frecuencia del alelo A en la población.</p>
+</section>
+<section id="ejercicio-4-efecto-de-la-migración" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Ejercicio 4: Efecto de la migración</h1>
+<p>Supongamos que tenemos dos poblaciones, Población 1 y Población 2, con las siguientes frecuencias alélicas para un gen específico:</p>
+<ul>
+<li>Población 1: Alelo A = 0.7, Alelo a = 0.3</li>
+<li>Población 2: Alelo A = 0.4, Alelo a = 0.6</li>
+</ul>
+<p>Si 10 individuos migran de la Población 1 a la Población 2, y 5 individuos migran de la Población 2 a la Población 1, calcule las nuevas frecuencias alélicas en ambas poblaciones después de la migración.</p>
+<p>Formulas sugeridas para el ejercicio 4: - Para calcular las nuevas frecuencias alélicas después de la migración, se puede usar la fórmula: <span class="math inline">\(p' = \frac{(p \cdot N) + (m \cdot M)}{N + M}\)</span> donde <span class="math inline">\(p\)</span> es la frecuencia alélica en la población original, <span class="math inline">\(N\)</span> es el tamaño de la población original, <span class="math inline">\(m\)</span> es la frecuencia alélica en la población migrante, <span class="math inline">\(M\)</span> es el número de migrantes y <span class="math inline">\(p'\)</span> es la nueva frecuencia alélica después de la migración.</p>
+</section>
+<section id="ejercicio-5-efecto-de-la-mutación" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Ejercicio 5: Efecto de la mutación</h1>
+<p>Supongamos que en una población de 100 individuos, el alelo A tiene una frecuencia de 0.8 y el alelo a tiene una frecuencia de 0.2. Si la tasa de mutación de A a a es de 0.01 y la tasa de mutación de a a A es de 0.02, calcule las nuevas frecuencias alélicas después de una generación de mutación.</p>
+<p>Formulas sugeridas para el ejercicio 5: - Para calcular las nuevas frecuencias alélicas después de la mutación, se puede usar la fórmula: <span class="math inline">\(p' = p(1 - \mu_{A \to a}) + q \cdot \mu_{a \to A}\)</span> donde <span class="math inline">\(p\)</span> es la frecuencia del alelo A antes de la mutación, <span class="math inline">\(q\)</span> es la frecuencia del alelo a antes de la mutación, <span class="math inline">\(\mu_{A \to a}\)</span> es la tasa de mutación de A a a, <span class="math inline">\(\mu_{a \to A}\)</span> es la tasa de mutación de a a A y <span class="math inline">\(p'\)</span> es la nueva frecuencia del alelo A después de la mutación. De manera similar, se puede calcular la nueva frecuencia del alelo a usando la fórmula: <span class="math inline">\(q' = q(1 - \mu_{a \to A}) + p \cdot \mu_{A \to a}\)</span> donde <span class="math inline">\(q'\)</span> es la nueva frecuencia del alelo a después de la mutación.</p>
+</section>
+<section id="soluciones-a-los-ejercicios" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Soluciones a los ejercicios</h1>
+<section id="solución-al-ejercicio-1" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="solución-al-ejercicio-1"><span class="header-section-number">13.1</span> Solución al Ejercicio 1</h2>
+<ol type="1">
+<li>Frecuencia alélica:</li>
+</ol>
+<ul>
+<li>Frecuencia del alelo A: <span class="math inline">\(p = \frac{2(40) + 50}{2(100)} = \frac{130}{200} = 0.65\)</span></li>
+<li>Frecuencia del alelo a: <span class="math inline">\(q = \frac{2(10) + 50}{2(100)} = \frac{70}{200} = 0.35\)</span></li>
+</ul>
+<ol start="2" type="1">
+<li>Frecuencia genotípica:</li>
+</ol>
+<ul>
+<li>Frecuencia del genotipo AA: <span class="math inline">\(g_{AA} = \frac{40}{100} = 0.4\)</span></li>
+<li>Frecuencia del genotipo Aa: <span class="math inline">\(g_{Aa} = \frac{50}{100} = 0.5\)</span></li>
+<li>Frecuencia del genotipo aa: <span class="math inline">\(g_{aa} = \frac{10}{100} = 0.1\)</span></li>
+</ul>
+<ol start="3" type="1">
+<li>Verificación del equilibrio de Hardy-Weinberg:</li>
+</ol>
+<ul>
+<li>Frecuencia esperada del genotipo AA: <span class="math inline">\(p^2 = (0.65)^2 = 0.4225\)</span></li>
+<li>Frecuencia esperada del genotipo Aa: <span class="math inline">\(2pq = 2(0.65)(0.35) = 0.455\)</span></li>
+<li>Frecuencia esperada del genotipo aa: <span class="math inline">\(q^2 = (0.35)^2 = 0.1225\)</span> Comparando las frecuencias observadas con las esperadas, vemos que no están en equilibrio de Hardy-Weinberg, ya que las frecuencias genotípicas observadas no coinciden con las esperadas.</li>
+</ul>
+</section>
+<section id="solución-al-ejercicio-2" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="solución-al-ejercicio-2"><span class="header-section-number">13.2</span> Solución al Ejercicio 2</h2>
+<ol type="1">
+<li>Tasa de selección:</li>
+</ol>
+<ul>
+<li>Para el genotipo AA: <span class="math inline">\(s_{AA} = \frac{0.8 - 0.4}{0.8} = 0.5\)</span></li>
+<li>Para el genotipo Aa: <span class="math inline">\(s_{Aa} = \frac{0.6 - 0.4}{0.8} = 0.25\)</span></li>
+<li>Para el genotipo aa: <span class="math inline">\(s_{aa} = \frac{0.4 - 0.4}{0.8} = 0\)</span></li>
+</ul>
+<ol start="2" type="1">
+<li>El genotipo más favorecido por la selección natural es el genotipo AA, ya que tiene la tasa de selección más alta (0.5).</li>
+<li>Para calcular la frecuencia alélica después de una generación de selección natural, primero calculamos las frecuencias genotípicas después de la selección:</li>
+</ol>
+<ul>
+<li>Frecuencia del genotipo AA después de la selección: <span class="math inline">\(g'_{AA} = \frac{0.4 \cdot 0.8}{0.4 \cdot 0.8 + 0.5 \cdot 0.6 + 0.1 \cdot 0.4} = \frac{0.32}{0.32 + 0.3 + 0.04} = \frac{0.32}{0.66} = 0.4848\)</span></li>
+<li>Frecuencia del genotipo Aa después de la selección: <span class="math inline">\(g'_{Aa} = \frac{0.5 \cdot 0.6}{0.4 \cdot 0.8 + 0.5 \cdot 0.6 + 0.1 \cdot 0.4} = \frac{0.3}{0.66} = 0.4545\)</span></li>
+<li>Frecuencia del genotipo aa después de la selección: <span class="math inline">\(g'_{aa} = \frac{0.1 \cdot 0.4}{0.4 \cdot 0.8 + 0.5 \cdot 0.6 + 0.1 \cdot 0.4} = \frac{0.04}{0.66} = 0.0606\)</span> Luego, calculamos las frecuencias alélicas después de la selección:</li>
+<li>Frecuencia del alelo A después de la selección: <span class="math inline">\(p' = g'_{AA} + \frac{1}{2}g'_{Aa} = 0.4848 + \frac{1}{2}(0.4545) = 0.4848 + 0.22725 = 0.71205\)</span></li>
+<li>Frecuencia del alelo a después de la selección: <span class="math inline">\(q' = g'_{aa} + \frac{1}{2}g'_{Aa} = 0.0606 + \frac{1}{2}(0.4545) = 0.0606 + 0.22725 = 0.28785\)</span></li>
+</ul>
+</section>
+<section id="solución-al-ejercicio-3" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="solución-al-ejercicio-3"><span class="header-section-number">13.3</span> Solución al Ejercicio 3</h2>
+<ol type="1">
+<li>Frecuencia alélica:</li>
+</ol>
+<ul>
+<li>Frecuencia del alelo A: <span class="math inline">\(p = \frac{2(20) + 25}{2(50)} = \frac{65}{100} = 0.65\)</span></li>
+<li>Frecuencia del alelo a: <span class="math inline">\(q = \frac{2(5) + 25}{2(50)} = \frac{35}{100} = 0.35\)</span></li>
+</ul>
+<ol start="2" type="1">
+<li>Varianza de la frecuencia alélica debido a la deriva genética: <span class="math inline">\(Var(p) = \frac{p(1-p)}{2N} = \frac{0.65(1-0.65)}{2(50)} = \frac{0.65(0.35)}{100} = \frac{0.2275}{100} = 0.002275\)</span></li>
+<li>Probabilidad de que el alelo A alcance la fijación debido a la deriva genética: La probabilidad de que un alelo alcance la fijación debido a la deriva genética es igual a su frecuencia alélica actual, por lo que la probabilidad de que el alelo A alcance la fijación es de 0.65 (65%).</li>
+</ol>
+</section>
+<section id="solución-al-ejercicio-4" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="solución-al-ejercicio-4"><span class="header-section-number">13.4</span> Solución al Ejercicio 4</h2>
+<p>Después de la migración, las nuevas frecuencias alélicas en ambas poblaciones se calculan de la siguiente manera:</p>
+<ul>
+<li>Para la Población 1:</li>
+<li>Frecuencia del alelo A: <span class="math inline">\(p'_{P1} = \frac{(0.7 \cdot 100) + (0.4 \cdot 5)}{100 + 5} = \frac{70 + 2}{105} = \frac{72}{105} = 0.6857\)</span></li>
+<li>Frecuencia del alelo a: <span class="math inline">\(q'_{P1} = \frac{(0.3 \cdot 100) + (0.6 \cdot 5)}{100 + 5} = \frac{30 + 3}{105} = \frac{33}{105} = 0.3143\)</span></li>
+<li>Para la Población 2:</li>
+<li>Frecuencia del alelo A: <span class="math inline">\(p'_{P2} = \frac{(0.4 \cdot 100) + (0.7 \cdot 10)}{100 + 10} = \frac{40 + 7}{110} = \frac{47}{110} = 0.4273\)</span></li>
+<li>Frecuencia del alelo a: <span class="math inline">\(q'_{P2} = \frac{(0.6 \cdot 100) + (0.3 \cdot 10)}{100 + 10} = \frac{60 + 3}{110} = \frac{63}{110} = 0.5727\)</span></li>
+</ul>
+</section>
+<section id="solución-al-ejercicio-5" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="solución-al-ejercicio-5"><span class="header-section-number">13.5</span> Solución al Ejercicio 5</h2>
+<p>Después de una generación de mutación, las nuevas frecuencias alélicas se calculan de la siguiente manera:</p>
+<ul>
+<li>Frecuencia del alelo A después de la mutación: <span class="math inline">\(p' = p(1 - \mu_{A \to a}) + q \cdot \mu_{a \to A} = 0.8(1 - 0.01) + 0.2 \cdot 0.02 = 0.8(0.99) + 0.004 = 0.792 + 0.004 = 0.796\)</span></li>
+<li>Frecuencia del alelo a después de la mutación: <span class="math inline">\(q' = q(1 - \mu_{a \to A}) + p \cdot \mu_{A \to a} = 0.2(1 - 0.02) + 0.8 \cdot 0.01 = 0.2(0.98) + 0.008 = 0.196 + 0.008 = 0.204\)</span></li>
+</ul>
+</section>
+</section>
+<section id="ejercicios-adicionales-en-r" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Ejercicios adicionales en R</h1>
+<p>Para estos ejercicios, simularemos la evolución de las frecuencias <span class="math inline">\(AA\)</span>, <span class="math inline">\(Aa\)</span> y <span class="math inline">\(aa\)</span> en una población a lo largo de 10 generaciones, considerando la selección natural, la deriva genética, la migración y la mutación.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámetros iniciales</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.8</span>  <span class="co"># Frecuencia del alelo A</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fl">0.2</span>  <span class="co"># Frecuencia del alelo a</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mu_A_to_a <span class="ot">&lt;-</span> <span class="fl">0.01</span>  <span class="co"># Tasa de mutación de A a a</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>mu_a_to_A <span class="ot">&lt;-</span> <span class="fl">0.02</span>  <span class="co"># Tasa de mutación de a a A</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>s_AA <span class="ot">&lt;-</span> <span class="fl">0.5</span>  <span class="co"># Tasa de selección para AA</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>s_Aa <span class="ot">&lt;-</span> <span class="fl">0.25</span>  <span class="co"># Tasa de selección para Aa</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>s_aa <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># Tasa de selección para aa</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="co"># Tamaño de la población</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>generations <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># En humanos, el número de generaciones en 200 años es de aproximadamente 100</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulación de la evolución de las frecuencias alélicas</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>frequencies <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Generation =</span> <span class="dv">0</span><span class="sc">:</span>generations, <span class="at">p =</span> <span class="cn">NA</span>, <span class="at">q =</span> <span class="cn">NA</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>frequencies<span class="sc">$</span>p[<span class="dv">1</span>] <span class="ot">&lt;-</span> p</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>frequencies<span class="sc">$</span>q[<span class="dv">1</span>] <span class="ot">&lt;-</span> q</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (gen <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>generations) {</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Selección natural</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  w_AA <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> s_AA</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  w_Aa <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> s_Aa</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  w_aa <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> s_aa</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Frecuencias genotípicas después de la selección</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  g_AA <span class="ot">&lt;-</span> p<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> w_AA</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  g_Aa <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> p <span class="sc">*</span> q <span class="sc">*</span> w_Aa</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  g_aa <span class="ot">&lt;-</span> q<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> w_aa</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Normalización de las frecuencias genotípicas</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  total_fitness <span class="ot">&lt;-</span> g_AA <span class="sc">+</span> g_Aa <span class="sc">+</span> g_aa</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  g_AA <span class="ot">&lt;-</span> g_AA <span class="sc">/</span> total_fitness</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  g_Aa <span class="ot">&lt;-</span> g_Aa <span class="sc">/</span> total_fitness</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  g_aa <span class="ot">&lt;-</span> g_aa <span class="sc">/</span> total_fitness</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Deriva genética (simulación de una muestra aleatoria)</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  genotypes <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"AA"</span>, <span class="st">"Aa"</span>, <span class="st">"aa"</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(g_AA, g_Aa, g_aa))</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cálculo de las frecuencias alélicas después de la deriva genética</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> (<span class="fu">sum</span>(genotypes <span class="sc">==</span> <span class="st">"AA"</span>) <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">sum</span>(genotypes <span class="sc">==</span> <span class="st">"Aa"</span>)) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> N)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  q <span class="ot">&lt;-</span> (<span class="fu">sum</span>(genotypes <span class="sc">==</span> <span class="st">"aa"</span>) <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">sum</span>(genotypes <span class="sc">==</span> <span class="st">"Aa"</span>)) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> N)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mutación</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> mu_A_to_a) <span class="sc">+</span> q <span class="sc">*</span> mu_a_to_A</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  q <span class="ot">&lt;-</span> q <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> mu_a_to_A) <span class="sc">+</span> p <span class="sc">*</span> mu_A_to_a</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Almacenamiento de las frecuencias alélicas para esta generación</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  frequencies<span class="sc">$</span>p[gen <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> p</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  frequencies<span class="sc">$</span>q[gen <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> q</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las frecuencias alélicas a lo largo de las generaciones</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.5.3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(frequencies, <span class="fu">aes</span>(<span class="at">x =</span> Generation)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> p, <span class="at">color =</span> <span class="st">"A"</span>)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> q, <span class="at">color =</span> <span class="st">"a"</span>)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Evolución de las frecuencias alélicas a lo largo de las generaciones"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Generación"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia alélica"</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"a"</span>)) <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Gen_Pop_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Suponiendo que contamos con dos alelos, uno ligado a la tolerancia a la lactosa (L) y otro ligado a la intolerancia a la lactosa (l), podemos simular la evolución de las frecuencias alélicas en una población a lo largo de 100 generaciones, considerando la selección natural, la deriva genética, la migración y la mutación.</p>
+</section>
+<section id="simulación-de-la-evolución-de-las-frecuencias-alélicas-para-la-tolerancia-a-la-lactosa" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Simulación de la evolución de las frecuencias alélicas para la tolerancia a la lactosa</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámetros iniciales</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.7</span>  <span class="co"># Frecuencia del alelo L (tolerancia a la lactosa)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fl">0.3</span>  <span class="co"># Frecuencia del alelo l (intolerancia a la lactosa)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mu_L_to_l <span class="ot">&lt;-</span> <span class="fl">0.001</span>  <span class="co"># Tasa de mutación de L a l</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>mu_l_to_L <span class="ot">&lt;-</span> <span class="fl">0.002</span>  <span class="co"># Tasa de mutación de l a L</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>s_LL <span class="ot">&lt;-</span> <span class="fl">0.1</span>  <span class="co"># Tasa de selección para LL (tolerancia a la lactosa)</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>s_Ll <span class="ot">&lt;-</span> <span class="fl">0.05</span>  <span class="co"># Tasa de selección para Ll (tolerancia a la lactosa)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>s_ll <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># Tasa de selección para ll (intolerancia a la lactosa)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">2000</span> <span class="co"># Tamaño de la población calculado para humanos hace aproximadamente 10,000 años</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>generations <span class="ot">&lt;-</span> <span class="dv">500</span> <span class="co"># En humanos, el número de generaciones en 10,000 años es de aproximadamente 500</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulación de la evolución de las frecuencias alélicas</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>frequencies <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Generation =</span> <span class="dv">0</span><span class="sc">:</span>generations, <span class="at">p =</span> <span class="cn">NA</span>, <span class="at">q =</span> <span class="cn">NA</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>frequencies<span class="sc">$</span>p[<span class="dv">1</span>] <span class="ot">&lt;-</span> p</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>frequencies<span class="sc">$</span>q[<span class="dv">1</span>] <span class="ot">&lt;-</span> q</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (gen <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>generations) {</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Selección natural</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  w_AA <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> s_AA</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  w_Aa <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> s_Aa</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  w_aa <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> s_aa</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Frecuencias genotípicas después de la selección</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  g_AA <span class="ot">&lt;-</span> p<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> w_AA</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  g_Aa <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> p <span class="sc">*</span> q <span class="sc">*</span> w_Aa</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  g_aa <span class="ot">&lt;-</span> q<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> w_aa</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Normalización de las frecuencias genotípicas</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  total_fitness <span class="ot">&lt;-</span> g_AA <span class="sc">+</span> g_Aa <span class="sc">+</span> g_aa</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  g_AA <span class="ot">&lt;-</span> g_AA <span class="sc">/</span> total_fitness</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  g_Aa <span class="ot">&lt;-</span> g_Aa <span class="sc">/</span> total_fitness</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  g_aa <span class="ot">&lt;-</span> g_aa <span class="sc">/</span> total_fitness</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Deriva genética (simulación de una muestra aleatoria)</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  genotypes <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"AA"</span>, <span class="st">"Aa"</span>, <span class="st">"aa"</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(g_AA, g_Aa, g_aa))</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cálculo de las frecuencias alélicas después de la deriva genética</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> (<span class="fu">sum</span>(genotypes <span class="sc">==</span> <span class="st">"AA"</span>) <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">sum</span>(genotypes <span class="sc">==</span> <span class="st">"Aa"</span>)) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> N)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  q <span class="ot">&lt;-</span> (<span class="fu">sum</span>(genotypes <span class="sc">==</span> <span class="st">"aa"</span>) <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">sum</span>(genotypes <span class="sc">==</span> <span class="st">"Aa"</span>)) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> N)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mutación</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> mu_A_to_a) <span class="sc">+</span> q <span class="sc">*</span> mu_a_to_A</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  q <span class="ot">&lt;-</span> q <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> mu_a_to_A) <span class="sc">+</span> p <span class="sc">*</span> mu_A_to_a</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Almacenamiento de las frecuencias alélicas para esta generación</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  frequencies<span class="sc">$</span>p[gen <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> p</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  frequencies<span class="sc">$</span>q[gen <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> q</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las frecuencias alélicas a lo largo de las generaciones</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(frequencies, <span class="fu">aes</span>(<span class="at">x =</span> Generation)) <span class="sc">+</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> p, <span class="at">color =</span> <span class="st">"L"</span>)) <span class="sc">+</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> q, <span class="at">color =</span> <span class="st">"l"</span>)) <span class="sc">+</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Evolución de las frecuencias alélicas para la tolerancia a la lactosa"</span>,</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Generación"</span>,</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia alélica"</span>) <span class="sc">+</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"L"</span>, <span class="st">"l"</span>)) <span class="sc">+</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Gen_Pop_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="referencias" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Referencias</h1>
+<ul>
+<li>Hartl, D. L., &amp; Clark, A. G. (2007). Principles of population genetics. Sinauer Associates.</li>
+<li>Gillespie, J. H. (2004). Population genetics: a concise guide. JHU Press.</li>
+<li>Hedrick, P. W. (2011). Genetics of populations. Jones &amp; Bartlett Learning.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Laboratorio_2.html" class="pagination-link" aria-label="¿Qué pasa si solo tengo frecuencias de haplogrupos?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">¿Qué pasa si solo tengo frecuencias de haplogrupos?</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
